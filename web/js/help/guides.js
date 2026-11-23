@@ -1,0 +1,125 @@
+// Guides: short task recipes with numbered steps. Content only. A step is { t: text (trusted static HTML: <b>, <kbd>,
+// <code> and data-term spans only), act?: an action (see help/actions.js) with its button label }.
+// Deep link: #help/guides/<id>. Contract: okf/architecture/help.md#guides
+export const GUIDES = [
+  {
+    id: 'start', title: 'Get started in 5 minutes', time: '5 min',
+    summary: 'Choose your sources, see Night Desk work on a made-up network, follow what you run, and know where to look each morning.',
+    terms: ['demo', 'watchlist', 'marker', 'needs-you'],
+    steps: [
+      { t: '<b>Choose your sources.</b> Each source says what it gives and its terms. Open-terms sources are ticked; the rest are your call.', act: { fn: 'choose-sources', label: 'Open Sources' } },
+      { t: '<b>Load the demo network.</b> A small made-up home with a few planted threats. Its alerts are marked DEMO and never count as needing you.', act: { api: '/api/netlog/demo', method: 'POST', label: 'Load demo data', done: 'Demo data loaded' } },
+      { t: '<b>Read one demo alert.</b> Each says what happened, why it has its severity and what to do, in plain words.', act: { go: '#network/alerts', label: 'Open alerts' } },
+      { t: '<b>Follow the vendors you run.</b> Their exploited bugs and news then show up on Watch.', act: { fn: 'follow', label: 'Follow a vendor' } },
+      { t: '<b>Connect your own logs</b> when you are ready: a firewall, a sensor, Pi-hole, or just files.', act: { help: 'guides/connect', label: 'Read the guide' } },
+      { t: '<b>Each morning, open Watch.</b> It shows what changed since you last pressed <b>Caught up</b>: your network first, then exploited bugs and news that touch you.', act: { go: '#watch', label: 'Open Watch' } },
+    ],
+  },
+  {
+    id: 'connect', title: 'Connect your firewall or sensor', time: '15 min',
+    summary: 'Send logs from OPNsense, pfSense, Security Onion, a Zeek or Suricata sensor, Pi-hole or AdGuard Home, or import files by hand.',
+    terms: ['zeek', 'suricata', 'eve', 'sinkhole', 'push-upload', 'home-prefix'],
+    steps: [
+      { t: '<b>Open Connect logs and pick what you have.</b> Night Desk tailors every step to that device.', act: { go: '#network/import', label: 'Open Connect logs' } },
+      { t: '<b>Get it ready.</b> Switch on the logs it names: <span data-term="zeek">Zeek</span> JSON output, Suricata\'s <span data-term="eve">EVE JSON</span> log, or the Pi-hole / AdGuard Home query log.' },
+      { t: '<b>Turn on device uploads.</b> Night Desk says in plain words who can reach the upload port. It never logs in to your devices: they send to it.' },
+      { t: '<b>Name the device and run the commands</b> it shows, in a root shell on the device. The token is shown once; it schedules the uploads for you.' },
+      { t: '<b>Wait for the first check-in.</b> The dot turns amber when the device checks in and green, "Connected. Logs up to …", when the first logs arrive.' },
+      { t: '<b>Check your home prefixes</b> so Night Desk can tell your devices from the internet. It suggests them from your logs.', act: { go: '#settings/home', label: 'Open Home network' } },
+      { t: 'No device to connect? <b>Drop log files</b> anywhere on the Connect logs tab, or into the inbox folder it shows.' },
+    ],
+  },
+  {
+    id: 'investigate', title: 'Investigate an alert end to end', time: '10 min',
+    summary: 'From the headline to a decision: what happened, whether it was listed at the time, what else the device did, what to do, and a note and a summary you can share.',
+    terms: ['incident', 'severity', 'direction', 'trust-tier', 'acknowledge', 'note', 'copy-summary'],
+    steps: [
+      { t: '<b>Open the worst open alert.</b> Alerts are grouped into <span data-term="incident">incidents</span>, worst and newest first.', act: { fn: 'first-alert', label: 'Open the top alert' } },
+      { t: '<b>Read the headline and "Why high"</b> (or medium, low). It says who started the contact, which list named the address, and anything that lowered it.' },
+      { t: '<b>Check "What happened" and the listing timeline:</b> was the address on the list when your device reached it, and is it still?' },
+      { t: '<b>Look at the evidence chain:</b> the exact log rows behind the alert. Open Search logs to see everything else the device did around that time.', act: { go: '#network/hunt', label: 'Open Search logs' } },
+      { t: '<b>Look the address up:</b> hover or click it for who owns it (its network, or <span data-term="asn">ASN</span>), every list that names it, and news reports about it.' },
+      { t: '<b>Write down what you found</b> in the incident\'s <span data-term="note">notes</span> (above the Questions; Ctrl+Enter saves). Notes are kept on the server and listed on the Notes page.', act: { go: '#notes', label: 'All notes' } },
+      { t: '<b>Copy a summary</b> to share it: <span data-term="copy-summary">Copy summary</span> in the action row gives Markdown with the evidence, sources and your notes. Leave <b>Redact my network</b> on so your devices and addresses become placeholders.' },
+      { t: '<b>Follow "What to do",</b> then decide: <kbd>a</kbd> acknowledge, <kbd>d</kbd> dismiss, or <b>This is expected…</b> for harmless repeats.' },
+    ],
+  },
+  {
+    id: 'quiet', title: 'Quiet a noisy alert', time: '3 min',
+    summary: 'Mark harmless repeating traffic as expected, so it stops needing you without disappearing.',
+    terms: ['expected-traffic', 'p2p', 'suricata', 'tor-exit'],
+    steps: [
+      { t: '<b>Open the alert and make sure it is harmless:</b> a game server on a community list, Tor on purpose, your own VPN.', act: { go: '#network/alerts', label: 'Open alerts' } },
+      { t: '<b>Choose "This is expected…"</b> and the scope: this device and this address, any device and this address, or this device and this kind of alert.' },
+      { t: '<b>Add a note and, if you like, an end date.</b> After the end date, the traffic alerts again.' },
+      { t: 'The incident moves to <b>Expected</b>. It is kept, never counts as needing you, and new contacts stay quiet.' },
+      { t: '<b>Review or delete your rules</b> any time; deleting one brings its alerts back at once.', act: { go: '#network/alerts/rules', label: 'Open Expected traffic' } },
+      { t: 'File sharing and games are already handled by the <span data-term="p2p">P2P</span> cap. For a chatty Suricata signature, lower its severity or suppress it.' },
+    ],
+  },
+  {
+    id: 'follow', title: 'Follow what you run', time: '3 min',
+    summary: 'Tell Night Desk which vendors and products you use, so the exploited bugs and news that matter to you rise to the top.',
+    terms: ['watchlist', 'kev', 'epss', 'marker'],
+    steps: [
+      { t: '<b>Follow a vendor in one click</b> from the ones most often on the exploited list.', act: { fn: 'follow', label: 'Follow a vendor' } },
+      { t: '<b>Add your own</b> products, groups or words in News, in the watchlist rail.', act: { go: '#news', label: 'Open News' } },
+      { t: 'Watch\'s <b>Touches you</b> now lists newly exploited bugs (<span data-term="kev">KEV</span>) and stories that match what you follow, plus stories naming addresses in your alerts.' },
+      { t: '<b>Press Caught up</b> on Watch when you have read it; next time it shows only what is new.', act: { go: '#watch', label: 'Open Watch' } },
+    ],
+  },
+  {
+    id: 'entity', title: 'Read an entity page and its confidence', time: '5 min',
+    summary: 'What Night Desk knows about a group, malware, CVE or address, who said it, and how sure to be.',
+    terms: ['entity', 'claim', 'confidence', 'trust-tier', 'hypothesis', 'disagree', 'merge'],
+    steps: [
+      { t: '<b>Find it:</b> press <kbd>/</kbd> and type a name, or browse Intel.', act: { go: '#entities', label: 'Open Intel' } },
+      { t: '<b>Read the summary first:</b> for an address, which lists name it and whether it was <span data-term="seen-on-network">seen on your network</span>; for a CVE, CVSS, EPSS, KEV and what to do.' },
+      { t: '<b>Claims</b> are grouped by origin: Observed (sources and lists), Reported (sources said it) and Your links. Each has a <span data-term="confidence">confidence</span> band with its reason, such as "2 sources: A, B".' },
+      { t: '<b>Hypotheses</b> (links Night Desk worked out) are hidden until you switch them on, and never count.' },
+      { t: '<b>Think a claim is wrong?</b> Choose Disagree… with a reason. Duplicates and contested attributions wait in Review.', act: { go: '#entities/review', label: 'Open Review' } },
+      { t: '<b>Export</b> the indicators as STIX 2.1 or CSV for your firewall or other tools.' },
+    ],
+  },
+  {
+    id: 'sql', title: 'Use the SQL console safely', time: '5 min',
+    summary: 'Ask your own questions of the data, read-only, without risk to the lake.',
+    terms: ['sql-console', 'lake'],
+    steps: [
+      { t: '<b>Turn it on first.</b> It is off unless Night Desk is started with <code>OSINTHUB_SQL_CONSOLE=1</code>; Settings › About says whether it is on.', act: { go: '#settings/about', label: 'Open Settings › About' } },
+      { t: '<b>Open it</b> from the gear menu or <kbd>⌘K</kbd>.', act: { go: '#explorer', label: 'Open SQL console' },
+        off: '<b>It is off now.</b> The SQL console is off. Start Night Desk with <code>OSINTHUB_SQL_CONSOLE=1</code> to turn it on; it then appears in the gear menu and <kbd>⌘K</kbd>.' },
+      { t: '<b>It only reads.</b> One SELECT, WITH, PIVOT (with its values listed: <code>ON kind IN (\'a\', \'b\')</code>), DESCRIBE or SUMMARIZE at a time, an 8-second limit, and no files, URLs or server settings, so a query cannot change or break anything.' },
+      { t: '<b>Start from the table list:</b> <code>events</code> (every source item), <code>netlog</code> (your logs), <code>alerts</code>, <code>devices</code>, <code>entities</code> and <code>claims</code>.' },
+      { t: '<b>Try:</b> <code>SELECT source, count(*) FROM events GROUP BY 1 ORDER BY 2 DESC</code>, then press <kbd>⌘↵</kbd>.' },
+      { t: '<b>Add LIMIT</b> to big tables, and remember results can show your own addresses and device names: take care when you share a screenshot.' },
+    ],
+  },
+  {
+    id: 'backup', title: 'Back up or move your data folder', time: '10 min',
+    summary: 'Everything Night Desk keeps is one folder. Copy it while the app is stopped.',
+    terms: ['lake'],
+    steps: [
+      { t: '<b>Find the folder.</b> Settings › Data and retention shows where it is and how big each part is.', act: { go: '#settings/data', label: 'Open Data and retention' } },
+      { t: '<b>Stop Night Desk</b> and wait for it to exit: the database is locked while it runs.' },
+      { t: '<b>Copy the whole folder.</b> <code>db/</code> holds the database, <code>raw/</code> the source records, <code>uploads/</code> and <code>inbox/</code> your files. <code>ref/</code> is downloaded again if missing, and the vector index can be rebuilt.' },
+      { t: '<b>To move it,</b> start Night Desk with <code>OSINTHUB_LAKE=/new/path</code>. A lake on an external drive that is not mounted refuses to start rather than starting empty.' },
+      { t: '<b>In Docker,</b> the lake is the app\'s volume (or the <code>LAKE_DIR</code> folder): copy it with <code>docker compose cp</code> or back up the folder. <code>docker compose down -v</code> deletes it.' },
+      { t: '<b>Keep it small:</b> set how long to keep data in Data and retention (off by default).' },
+    ],
+  },
+  {
+    id: 'offline', title: 'Run it offline', time: '2 min',
+    summary: 'Cut Night Desk off from the internet completely and keep working with what is already in the lake.',
+    terms: ['offline-mode', 'ai-helper'],
+    steps: [
+      { t: '<b>Start it with</b> <code>OSINTHUB_OFFLINE=1</code>. Nothing is fetched, the browser included: no map tiles, no avatars.' },
+      { t: '<b>Still works:</b> importing logs, device uploads on your own network, matching against the lists already in the lake, alerts, Intel, the news already fetched and the SQL console (when it is on).' },
+      { t: '<b>Stops:</b> sources no longer update. The top-bar Sources dot turns grey and Watch says so.' },
+      { t: '<b>Check it:</b> "Is everything working?" shows Offline mode in grey.', act: { help: 'status', label: 'Check now' } },
+      { t: '<b>To go back online,</b> restart without the variable.' },
+    ],
+  },
+];
+
+export const guideById = new Map(GUIDES.map((g) => [g.id, g]));

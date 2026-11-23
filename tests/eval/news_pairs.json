@@ -1,0 +1,245 @@
+{
+ "description": "30 article pairs labelled same event / different event by reading both articles (news builder, 2026-11-04). Lake: hlta-scratch/news fetched 2026-11-05 UTC.",
+ "pairs": [
+  {
+   "a": "https://thehackernews.com/2026/11/google-disrupts-13-million-device.html",
+   "b": "https://cyberscoop.com/google-disrupts-xcpe-botnet-videostrong-android-devices/",
+   "same": true,
+   "a_title": "Google Disrupts 1.3 Million-Device Android Botnet, Says TV Box Maker Sold Criminal Access",
+   "b_title": "Google shuts down global botnet running on certified Android devices",
+   "note": "Google/partners XCPE Android TV-box botnet takedown"
+  },
+  {
+   "a": "https://krebsonsecurity.com/2026/11/tech-firms-dismantle-botnet-that-turned-1-3m-tv-boxes-into-proxies/",
+   "b": "https://www.darkreading.com/endpoint-security/google-13-million-device-strong-xcpe-botnet",
+   "same": true,
+   "a_title": "Tech Firms Dismantle Botnet That Turned 1.3M TV Boxes Into Proxies",
+   "b_title": "Google, Partners Disrupt 1.3 Million-Device-Strong XCPE Botnet",
+   "note": "XCPE botnet takedown"
+  },
+  {
+   "a": "https://thehackernews.com/2026/11/cpguard-update-channel-hijacked-to.html",
+   "b": "https://www.helpnetsecurity.com/2026/11/04/cpguard-update-supply-chain-compromised/",
+   "same": true,
+   "a_title": "cPGuard Update Channel Hijacked to Backdoor Linux Servers and Collect Password Hashes",
+   "b_title": "Poisoned cPGuard update hits thousands of web hosting servers",
+   "note": "cPGuard update channel hijack"
+  },
+  {
+   "a": "https://www.securityweek.com/canadian-extradited-to-us-over-cryptomining-hacks-on-university-supercomputers/",
+   "b": "https://therecord.media/canadian-nationals-accused-us-education-hacks-cryptomining",
+   "same": true,
+   "a_title": "Canadian Extradited to US Over Cryptomining Hacks on University Supercomputers",
+   "b_title": "Canadian extradited to US for allegedly hacking schools in at least four states",
+   "note": "Canadian extradited over university cryptomining hacks"
+  },
+  {
+   "a": "https://www.bleepingcomputer.com/news/security/binance-says-fake-job-interview-led-to-63-billion-crypto-heist/",
+   "b": "https://www.helpnetsecurity.com/2026/11/04/binance-hack-north-korea-fake-job-interview/",
+   "same": true,
+   "a_title": "Binance says fake job interview led to $6.3 billion crypto heist",
+   "b_title": "Fake job interview opened the door to $6.34 billion Binance heist",
+   "note": "Binance disclosure: fake job interview led to heist"
+  },
+  {
+   "a": "https://thehackernews.com/2026/11/binance-reveals-how-fake-job-interviews.html",
+   "b": "https://www.securityweek.com/rigged-coding-assignment-abused-ai-tool-opened-path-to-6-billion-binance-heist/",
+   "same": true,
+   "a_title": "Binance Reveals How Fake Job Interviews and AI Tool Abuse Led to $6.43 Billion Theft",
+   "b_title": "Rigged Coding Assignment, Abused AI Tool Opened Path to $6 Billion Binance Heist",
+   "note": "Binance disclosure of the attack path"
+  },
+  {
+   "a": "https://www.bleepingcomputer.com/news/security/barracuda-warns-of-critical-flaws-allowing-root-access-to-devices/",
+   "b": "https://www.securityweek.com/barracuda-email-security-gateway-authentication-bypass-opens-path-to-root/",
+   "same": true,
+   "a_title": "Barracuda warns of critical flaws allowing root access to devices",
+   "b_title": "Barracuda ESG Authentication Bypass Flaw Opens Path to Root",
+   "note": "Barracuda ESG root-access flaws"
+  },
+  {
+   "a": "https://thehackernews.com/2026/10/official-claude-code-vs-code-extension.html",
+   "b": "https://www.microsoft.com/en-us/security/blog/2026/10/30/inside-malicious-claude-code-branded-cursor-extension-persistent-ssh-backdoor/",
+   "same": true,
+   "a_title": "Official Claude Code Extension on Cursor Marketplace Trojanized with Persistent SSH Backdoor",
+   "b_title": "Inside a malicious Claude Code-branded extension and its persistent SSH backdoor",
+   "note": "Trojanized Claude Code extension on Cursor marketplace"
+  },
+  {
+   "a": "https://www.helpnetsecurity.com/2026/11/04/cyberattack-hits-french-blood-banks/",
+   "b": "https://www.bleepingcomputer.com/news/security/cyberattack-disrupts-blood-storage-refrigeration-systems-in-france/",
+   "same": true,
+   "a_title": "Cyberattack hits French blood banks",
+   "b_title": "Cyberattack disrupts blood storage refrigeration systems in France",
+   "note": "Cyberattack on French blood-bank refrigeration"
+  },
+  {
+   "a": "https://blog.talosintelligence.com/two-critical-rces-in-php-core/",
+   "b": "https://unit42.paloaltonetworks.com/cve-2026-109618-cve-2026-109619/",
+   "same": true,
+   "a_title": "Two critical RCEs in PHP core",
+   "b_title": "Threat Brief: Critical Vulnerabilities in PHP: CVE-2026-109618, CVE-2026-109619 (Updated October 29)",
+   "note": "PHP2Shell CVE-2026-109618/109619"
+  },
+  {
+   "a": "https://www.bleepingcomputer.com/news/security/police-seizes-over-100-servers-in-investment-scam-crackdown/",
+   "b": "https://cyberscoop.com/europol-investment-scam-takedown/",
+   "same": true,
+   "a_title": "Police seizes over 100 servers in investment scam crackdown",
+   "b_title": "Europol dismantles investment scheme that impacted potential victims in 50 countries",
+   "note": "Europol takedown of investment-fraud server provider, 100+ servers, 7 arrests"
+  },
+  {
+   "a": "https://www.darkreading.com/cybersecurity-analytics/cyber-vulnerabilities-besiege-italy",
+   "b": "https://www.darkreading.com/cybersecurity-analytics/cyber-vulnerabilities-besiege-italy-italian",
+   "same": true,
+   "a_title": "Cyber Vulnerabilities Besiege Italy, Absent Clear Cause",
+   "b_title": "L’Italia è afflitta da vulnerabilità informatiche, senza una causa chiara",
+   "note": "Same Dark Reading article, Italian translation"
+  },
+  {
+   "a": "https://unit42.paloaltonetworks.com/ai-campaign-targets-linux-infrastructure/",
+   "b": "https://thehackernews.com/2026/11/government-linux-servers-targeted-with.html",
+   "same": true,
+   "a_title": "AI-Powered Espionage Campaign Targets Government Linux Infrastructure",
+   "b_title": "Government Linux Servers Targeted With SysGoRAT and Suspected AI-Generated Scripts",
+   "note": "Unit 42 CL-UNK-1211 campaign; THN reports Unit 42's findings 18 days later"
+  },
+  {
+   "a": "https://www.bleepingcomputer.com/news/security/chinese-hackers-use-artex-ai-in-automated-attacks-against-200-orgs/",
+   "b": "https://thehackernews.com/2026/10/chinese-hackers-use-ai-powered-artex-to.html",
+   "same": true,
+   "a_title": "Chinese hackers use ARTEX AI in automated attacks against 200 orgs",
+   "b_title": "Chinese Hackers Use AI-Powered ARTEX to Target Over 200 Organizations Worldwide",
+   "note": "Chinese actor using ARTEX against 200+ orgs"
+  },
+  {
+   "a": "https://www.microsoft.com/en-us/security/blog/2026/10/30/help-desk-impersonation-ad-cs-abuse-investigating-esc1-esc8-intrusion-paths/",
+   "b": "https://thehackernews.com/2026/11/attackers-pose-as-it-support-on.html",
+   "same": true,
+   "a_title": "From help desk impersonation to AD CS abuse: Investigating ESC1 and ESC8 intrusion paths",
+   "b_title": "Attackers Pose as IT Support on Microsoft Teams, Abuse AD CS to Steal Company Data",
+   "note": "Microsoft report on help-desk impersonation and AD CS abuse"
+  },
+  {
+   "a": "https://isc.sans.edu/diary/rss/33454",
+   "b": "https://isc.sans.edu/diary/rss/33474",
+   "same": false,
+   "a_title": "YARA-X 1.22.0 Release, (Sun, Oct 25th)",
+   "b_title": "YARA-X 1.22.1 Release, (Sat, Oct 31st)",
+   "note": "two different YARA-X releases"
+  },
+  {
+   "a": "https://thehackernews.com/2026/11/fbi-links-north-koreas-tradertraitor-to.html",
+   "b": "https://www.securityweek.com/north-korea-launches-missiles-toward-the-sea-as-pyongyang-protests-against-us-claims-on-binance-hack/",
+   "same": false,
+   "a_title": "FBI Links North Korea's TraderTraitor to Record $6.43 Billion Binance Crypto Heist",
+   "b_title": "North Korea Launches Missiles Toward the Sea as Pyongyang Protests Against US Claims on Binance Hack",
+   "note": "FBI attribution vs North Korea's missile protest days later"
+  },
+  {
+   "a": "https://www.bleepingcomputer.com/news/security/chinese-hackers-use-artex-ai-in-automated-attacks-against-200-orgs/",
+   "b": "https://www.bleepingcomputer.com/news/security/workos-says-attacker-used-artex-ai-to-breach-internal-sales-app/",
+   "same": false,
+   "a_title": "Chinese hackers use ARTEX AI in automated attacks against 200 orgs",
+   "b_title": "WorkOS says attacker used ARTEX AI to breach internal sales app",
+   "note": "ARTEX campaign vs WorkOS breach disclosure"
+  },
+  {
+   "a": "https://thehackernews.com/2026/11/second-wave-of-cyberattacks-hits.html",
+   "b": "https://www.bleepingcomputer.com/news/security/cyberattack-disrupts-blood-storage-refrigeration-systems-in-france/",
+   "same": false,
+   "a_title": "New Wave of Refrigeration Cyberattacks Hits Supermarkets Across Europe, Forcing Stores to Pull Food",
+   "b_title": "Cyberattack disrupts blood storage refrigeration systems in France",
+   "note": "European supermarket fridge attacks vs French blood-bank attack"
+  },
+  {
+   "a": "https://www.bleepingcomputer.com/news/security/police-seizes-over-100-servers-in-investment-scam-crackdown/",
+   "b": "https://thehackernews.com/2026/11/russian-police-arrest-3-suspected.html",
+   "same": false,
+   "a_title": "Police seizes over 100 servers in investment scam crackdown",
+   "b_title": "Russian Police Arrest 3 Suspected VasyGrek Hackers, Dismantle Criminal Infrastructure",
+   "note": "Europol fraud takedown vs Russian VasyGrek arrests"
+  },
+  {
+   "a": "https://www.bleepingcomputer.com/news/security/btcpay-server-warns-of-hot-wallet-thefts-targeting-outdated-instances/",
+   "b": "https://thehackernews.com/2026/11/attackers-target-unpatched.html",
+   "same": false,
+   "a_title": "BTCPay Server warns of hot wallet crypto thefts on outdated instances",
+   "b_title": "Attackers Target Unpatched CryptoPayment Gateway Flaw That Can Expose Wallet Credentials",
+   "note": "BTCPay Server thefts vs CryptoPayment Gateway WordPress plugin flaw"
+  },
+  {
+   "a": "https://www.bleepingcomputer.com/news/security/barracuda-warns-of-critical-flaws-allowing-root-access-to-devices/",
+   "b": "https://thehackernews.com/2026/10/attackers-chain-three-ivanti-connect.html",
+   "same": false,
+   "a_title": "Barracuda warns of critical flaws allowing root access to devices",
+   "b_title": "Attackers Chain Three Ivanti Connect Secure Flaws to Gain Unauthenticated Root Access",
+   "note": "Barracuda flaws vs Ivanti Connect Secure chain"
+  },
+  {
+   "a": "https://www.bleepingcomputer.com/news/security/sonicwall-warns-of-unpatched-flaws-in-end-of-life-gms-software/",
+   "b": "https://www.bleepingcomputer.com/news/security/zyxel-fixes-zero-day-exploited-to-hack-nearly-1-000-network-switches/",
+   "same": false,
+   "a_title": "SonicWall warns of unpatched flaws in end-of-life GMS software",
+   "b_title": "Zyxel fixes zero-day exploited to hack nearly 1,000 network switches",
+   "note": "SonicWall GMS EoL flaws vs Zyxel switch zero-day"
+  },
+  {
+   "a": "https://blog.talosintelligence.com/two-critical-rces-in-php-core/",
+   "b": "https://thehackernews.com/2026/10/hackers-actively-exploit-highly.html",
+   "same": false,
+   "a_title": "Two critical RCEs in PHP core",
+   "b_title": "Hackers Actively Exploit Highly Critical Drupal Commerce Core Authorization Bypass Flaw",
+   "note": "PHP core RCEs vs Drupal Commerce auth bypass"
+  },
+  {
+   "a": "https://www.securityweek.com/sysdig-adds-runtime-security-and-governance-for-ai-agents/",
+   "b": "https://www.helpnetsecurity.com/2026/11/04/blueflag-ai-agent-governance/",
+   "same": false,
+   "a_title": "Sysdig Adds Runtime Security and Governance for AI Agents",
+   "b_title": "BlueFlag Security adds controls for AI agents working under developer identities",
+   "note": "Sysdig vs BlueFlag AI-agent product launches"
+  },
+  {
+   "a": "https://www.bleepingcomputer.com/news/security/binance-says-fake-job-interview-led-to-63-billion-crypto-heist/",
+   "b": "https://thehackernews.com/2026/11/hackers-steal-about-27-million-from.html",
+   "same": false,
+   "a_title": "Binance says fake job interview led to $6.3 billion crypto heist",
+   "b_title": "Hackers Steal About $2.7 Million From Polymarket Traders via Hijacked DebugBear Script",
+   "note": "Binance heist vs Polymarket script hijack"
+  },
+  {
+   "a": "https://thehackernews.com/2026/11/critical-rails-flaw-lets-attackers.html",
+   "b": "https://thehackernews.com/2026/11/debian-and-ubuntu-apt-flaw-lets-mitm.html",
+   "same": false,
+   "a_title": "Critical Rails Flaw Lets Attackers Write Server Files via Crafted ImageMagick Uploads",
+   "b_title": "Debian and Ubuntu APT Flaw Lets MitM Attackers Swap Verified Packages and Run Code as Root",
+   "note": "Rails ImageMagick flaw vs Debian/Ubuntu APT flaw"
+  },
+  {
+   "a": "https://therecord.media/french-bank-confirms-cyber-heist",
+   "b": "https://www.helpnetsecurity.com/2026/11/04/cyberattack-hits-french-blood-banks/",
+   "same": false,
+   "a_title": "French bank confirms cyber heist, hackers suspected to have stolen an estimated $133 million",
+   "b_title": "Cyberattack hits French blood banks",
+   "note": "French bank cyber heist vs French blood-bank attack"
+  },
+  {
+   "a": "https://www.securityweek.com/canadian-extradited-to-us-over-cryptomining-hacks-on-university-supercomputers/",
+   "b": "https://www.bleepingcomputer.com/news/security/harvard-university-data-breach-exposed-info-of-851-000-accounts/",
+   "same": false,
+   "a_title": "Canadian Extradited to US Over Cryptomining Hacks on University Supercomputers",
+   "b_title": "Harvard University data breach exposed info of 851,000 accounts",
+   "note": "Canadian extradition vs Harvard data breach"
+  },
+  {
+   "a": "https://thehackernews.com/2026/10/telegram-android-flaw-lets-attackers.html",
+   "b": "https://thehackernews.com/2026/11/google-patches-critical-android-flaw.html",
+   "same": false,
+   "a_title": "Telegram Android Flaw Lets Attackers Run Code When Users Answer Voice Calls",
+   "b_title": "Google Issues Patches for Critical Android Flaw That Could Allow RCE Without User Interaction",
+   "note": "Telegram Android call flaw vs Android monthly critical RCE patch"
+  }
+ ]
+}

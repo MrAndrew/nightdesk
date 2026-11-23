@@ -1,0 +1,55 @@
+name: Bug
+description: Something doesn't work or looks wrong.
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        **Please keep your own network out of this issue.** Don't paste your logs, IP or MAC addresses, device names, host names or screenshots of your dashboard: issues are public. A made-up example is enough. **Settings › About › Copy diagnostics** gives a summary with those removed, and `nightdesk-redact` makes a log sample safe to share.
+
+        Security problems go privately, not here: see SECURITY.md.
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened
+      description: What you did, what you expected, and what happened instead.
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to see it
+      placeholder: |
+        1. Open Network › Alerts
+        2. Choose …
+        3. …
+  - type: input
+    id: version
+    attributes:
+      label: Version
+      description: Settings › About shows it.
+      placeholder: "0.1.0 (commit abc1234)"
+    validations:
+      required: true
+  - type: dropdown
+    id: install
+    attributes:
+      label: How you run it
+      options:
+        - The one-line install (Docker)
+        - The nightdesk command (uv tool install)
+        - From the source (uv run)
+        - Something else (say below)
+    validations:
+      required: true
+  - type: input
+    id: os
+    attributes:
+      label: Computer and browser
+      placeholder: "macOS 26 on Apple silicon, Safari 26"
+  - type: textarea
+    id: diagnostics
+    attributes:
+      label: Diagnostics
+      description: Paste the text from Settings › About › Copy diagnostics, after reading it.
+      render: text

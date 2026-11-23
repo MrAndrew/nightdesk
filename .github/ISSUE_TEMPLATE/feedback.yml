@@ -1,0 +1,31 @@
+name: Feedback or idea
+description: What works for you, what doesn't, what you'd like it to do.
+labels: ["feedback"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        **Please keep your own network out of this issue.** Don't paste your logs, IP or MAC addresses, device names, host names or screenshots of your dashboard: issues are public. A made-up example is enough. **Settings › About › Copy diagnostics** gives a summary with those removed, and `nightdesk-redact` makes a log sample safe to share.
+
+        Security problems go privately, not here: see SECURITY.md.
+  - type: textarea
+    id: feedback
+    attributes:
+      label: Your feedback
+      description: What you were trying to do, how it went, and what would make it better.
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: Version
+      description: Settings › About shows it.
+  - type: dropdown
+    id: install
+    attributes:
+      label: How you run it
+      options:
+        - The one-line install (Docker)
+        - The nightdesk command (uv tool install)
+        - From the source (uv run)
+        - Something else

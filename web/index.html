@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Night Desk · OSINT Hub</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect x='11' y='4' width='10' height='3' rx='1.5' fill='%23e4a84c'/><path d='M12 7 H20 L25 23 H7 Z' fill='%23e4a84c' opacity='.25'/><path d='M12 7 H20 L25 23 H7 Z' fill='none' stroke='%23e4a84c' stroke-width='1' opacity='.6'/><path d='M6 23 H26' stroke='%23e4a84c' stroke-width='2' stroke-linecap='round' fill='none'/><circle cx='16' cy='19' r='2.4' fill='%23e4a84c'/></svg>">
+  <!-- Every library and font is vendored under vendor/ with its exact version (okf/environment.md#vendored-web-libraries), so the app renders with no internet. -->
+  <link rel="stylesheet" href="vendor/fonts/fonts.css">
+  <link rel="stylesheet" href="vendor/gridstack@10.3.1/gridstack.min.css">
+  <link rel="stylesheet" href="vendor/maplibre-gl@5.24.1/maplibre-gl.css">
+  <link rel="stylesheet" href="css/app.css">
+  <!-- The chart, map, grid and globe libraries are not loaded here: js/core/libs.js loads each one when a view needs
+       it (a phone's first screen needs none) and, on desktop, all of them once the page is idle. -->
+</head>
+<body>
+  <a class="shell-skip" href="#views" data-skip>Skip to content</a>
+  <header class="topbar">
+    <a class="brand" href="#watch" title="Night Desk: go to Watch" aria-label="Night Desk: go to Watch">
+      <svg viewBox="0 0 32 32" class="brand-mark" aria-hidden="true"><title>Take the tour of this page</title><rect class="bm-emit" x="11" y="4" width="10" height="3" rx="1.5"/><path class="bm-beam" d="M12 7 H20 L25 23 H7 Z"/><path class="bm-edge" d="M12 7 H20 L25 23 H7 Z"/><path class="bm-desk" d="M6 23 H26"/><circle class="bm-dot" cx="16" cy="19" r="2.3"/></svg>
+      <span class="brand-name">Night Desk</span><span class="brand-tag">LOCAL</span>
+    </a>
+    <!-- Main navigation: routes, not tabs (aria-current marks the view on screen). Phones use the bottom bar below. -->
+    <nav class="views" aria-label="Main">
+      <button data-view="watch" class="active" aria-current="page">Watch</button>
+      <button data-view="network">Network</button>
+      <button data-view="news">News</button>
+      <button data-view="entities">Intel</button>
+      <button data-view="ops">Ops</button>
+      <button data-view="cinema" class="shell-desk-only">Cinema</button>
+    </nav>
+    <div class="gs" id="gs">
+      <button class="gs-open icon-btn" id="gs-open" title="Search everything (/)" aria-label="Search"><svg class="i"><use href="#i-search"/></svg></button>
+      <div class="gs-box" role="combobox" aria-label="Search everything" aria-haspopup="listbox" aria-owns="gs-list" aria-expanded="false">
+        <svg class="i"><use href="#i-search"/></svg>
+        <input id="global-search" placeholder="Search everything…" autocomplete="off" spellcheck="false" aria-label="Search everything" aria-autocomplete="list" aria-controls="gs-list">
+        <span class="gs-mode mono" hidden></span>
+        <kbd class="gs-kbd mono">/</kbd>
+        <button class="gs-x icon-btn" title="Close" aria-label="Close search"><svg class="i"><use href="#i-x"/></svg></button>
+      </div>
+      <div class="gs-drop" id="gs-list" role="listbox" hidden></div>
+    </div>
+    <div class="top-right">
+      <a class="al-badge" id="al-badge" href="#network/alerts" title="Open network alerts" hidden><span class="al-l">Alerts</span><span class="al-sev"></span></a>
+      <a class="shell-feed" id="feed-dot" href="#settings/sources" data-ls="waiting" title="Source health" aria-label="Source health: checking"><span class="shell-feed-dot" aria-hidden="true"></span><span class="shell-feed-t">Sources</span></a>
+      <div class="clock" id="clock" aria-hidden="true">--:--:--</div>
+      <div class="shell-pop" id="gear">
+        <button class="icon-btn shell-pop-btn" id="gear-btn" aria-haspopup="menu" aria-expanded="false" aria-controls="gear-menu" title="Settings and tools" aria-label="Settings and tools"><svg class="i"><use href="#i-gear"/></svg></button>
+        <div class="menu shell-menu" id="gear-menu" role="menu" aria-label="Settings and tools">
+          <a class="mi" role="menuitem" href="#notes" data-view="notes"><svg class="i"><use href="#i-note"/></svg>Notes</a>
+          <a class="mi" role="menuitem" href="#settings" data-view="settings"><svg class="i"><use href="#i-gear"/></svg>Settings</a>
+          <a class="mi" role="menuitem" href="#settings/sources"><svg class="i"><use href="#i-layers"/></svg>Sources</a>
+          <a class="mi needs-sql" role="menuitem" href="#explorer" data-view="explorer"><svg class="i"><use href="#i-code"/></svg>SQL console</a>
+        </div>
+      </div>
+      <div class="shell-pop" id="help">
+        <button class="icon-btn shell-pop-btn shell-help-btn" id="help-btn" aria-haspopup="dialog" aria-expanded="false" title="Help (?)" aria-label="Help">?</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Ops' view header (the same component as core/view.js viewHeader; Ops' controls live outside its grid view) -->
+  <header class="subbar vh" id="subbar">
+    <h1 class="vh-title">Ops</h1>
+    <p class="vh-sub"><span class="vh-purpose">Live panels from the public sources, arranged your way</span></p>
+    <div class="vh-end">
+      <div class="vh-act">
+        <div class="deck-picker">
+          <button class="sb-btn vh-btn" id="deck-btn" aria-haspopup="menu" aria-expanded="false" aria-controls="deck-menu" title="Choose a deck"><svg class="i"><use href="#i-layers"/></svg><span id="deck-name">Cyber Ops</span><svg class="i caret"><use href="#i-caret"/></svg></button>
+          <div class="menu" id="deck-menu" role="menu" aria-label="Decks"></div>
+        </div>
+        <button class="sb-btn vh-btn" id="add-widget" title="Add a widget" aria-haspopup="menu" aria-expanded="false" aria-controls="widget-menu"><svg class="i"><use href="#i-plus"/></svg>Widget</button>
+        <div class="menu" id="widget-menu" role="menu" aria-label="Add widget"></div>
+        <button class="sb-btn vh-btn finishb-edit" id="ops-edit" hidden aria-pressed="false" title="Move, resize or remove panels"><svg class="i"><use href="#i-grip"/></svg><span>Edit layout</span></button>
+        <button class="sb-btn vh-btn" id="ops-filter" style="display:none" title="The global search text is filtering these panels. Click to clear the filter."><svg class="i"><use href="#i-search"/></svg><span></span><svg class="i"><use href="#i-x"/></svg></button>
+        <a class="sb-btn vh-btn shell-ops-feeds" id="ops-feeds" href="#settings/sources" title="Source health: open Settings › Sources"><span class="shell-feed-dot" aria-hidden="true"></span><span class="shell-ops-feeds-t">Source health</span><svg class="i"><use href="#i-caret-r"/></svg></a>
+      </div>
+      <div class="vh-range"><div id="range"></div></div>
+    </div>
+  </header>
+
+  <main id="views" tabindex="-1">
+    <section class="view active" data-view="watch" id="view-watch"></section>
+    <section class="view" data-view="ops"><div class="grid-stack" id="grid"></div></section>
+    <section class="view" data-view="cinema" id="view-cinema"></section>
+    <section class="view" data-view="explorer" id="view-explorer"></section>
+    <section class="view" data-view="settings" id="view-settings"></section>
+    <section class="view" data-view="network" id="view-network"></section>
+    <section class="view" data-view="news" id="view-news"></section>
+    <section class="view" data-view="entities" id="view-entities"></section>
+    <section class="view" data-view="notes" id="view-notes"></section>
+  </main>
+
+  <!-- Phones with a touch screen (core/mobile.js PHONE_MQ: coarse pointer and <= 760 px wide, or <= 500 px tall): the
+       tab bar (design.md §3). Four tabs plus More, which holds Ops, Notes, Cinema, SQL console, Sources, Settings and
+       Help. core/page.js shows it only on a phone and wires it (tabTap); hidden everywhere else, so desktop and a
+       narrow desktop window keep the bar below. The action bar takes its slot on pushed pages (page.setActionBar). -->
+  <nav class="m-tabbar" id="m-tabbar" aria-label="Main" hidden>
+    <a class="m-tab" data-tab="watch" href="#watch"><svg class="i" aria-hidden="true"><use href="#i-watch"/></svg><span>Watch</span></a>
+    <a class="m-tab" data-tab="network" href="#network"><svg class="i" aria-hidden="true"><use href="#i-net"/></svg><span>Network</span><span class="m-tab-badge" hidden></span></a>
+    <a class="m-tab" data-tab="news" href="#news"><svg class="i" aria-hidden="true"><use href="#i-news"/></svg><span>News</span></a>
+    <a class="m-tab" data-tab="entities" href="#entities"><svg class="i" aria-hidden="true"><use href="#i-intel"/></svg><span>Intel</span></a>
+    <button type="button" class="m-tab" data-tab="more" aria-haspopup="dialog" aria-expanded="false"><svg class="i" aria-hidden="true"><use href="#i-more"/></svg><span>More</span></button>
+  </nav>
+  <div class="m-actbar" id="m-actbar" role="toolbar" aria-label="Page actions" hidden></div>
+
+  <!-- Narrow windows (<= 760 px) without a touch screen: the five daily destinations plus More (Notes, Cinema, Settings, Sources, SQL console, Help). -->
+  <nav class="bnav" id="bnav" aria-label="Main">
+    <button data-view="watch"><svg class="i" aria-hidden="true"><use href="#i-watch"/></svg><span>Watch</span></button>
+    <button data-view="network"><svg class="i" aria-hidden="true"><use href="#i-net"/></svg><span>Network</span></button>
+    <button data-view="news"><svg class="i" aria-hidden="true"><use href="#i-news"/></svg><span>News</span></button>
+    <button data-view="entities"><svg class="i" aria-hidden="true"><use href="#i-intel"/></svg><span>Intel</span></button>
+    <button data-view="ops"><svg class="i" aria-hidden="true"><use href="#i-ops"/></svg><span>Ops</span></button>
+    <button class="bnav-more" id="bnav-more" aria-haspopup="menu" aria-expanded="false" aria-controls="bnav-sheet"><svg class="i" aria-hidden="true"><use href="#i-more"/></svg><span>More</span></button>
+  </nav>
+  <div class="shell-scrim" id="shell-scrim" hidden></div>
+  <div class="bnav-sheet menu" id="bnav-sheet" role="menu" aria-label="More"></div>
+
+  <aside class="drawer" id="drawer" role="dialog" aria-labelledby="drawer-title" aria-hidden="true" inert tabindex="-1">
+    <div class="drawer-head"><span class="drawer-kind" id="drawer-kind"></span><button class="icon-btn" id="drawer-close" title="Close (Esc)" aria-label="Close event details"><svg class="i" aria-hidden="true"><use href="#i-x"/></svg></button></div>
+    <div class="drawer-body" id="drawer-body"></div>
+  </aside>
+
+  <div class="toast-stack" id="toasts" role="status" aria-live="polite"></div>
+  <div class="sr-only" id="sr-live" aria-live="polite" aria-atomic="true"></div>
+  <button class="shell-kiosk-x" id="kiosk-exit" hidden title="Leave full screen (Esc)" aria-label="Leave full-screen Cinema"><svg class="i"><use href="#i-x"/></svg></button>
+
+  <svg width="0" height="0" style="position:absolute">
+    <symbol id="i-layers" viewBox="0 0 24 24"><path d="M12 3 2 8l10 5 10-5-10-5Z M2 13l10 5 10-5 M2 17.5l10 5 10-5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></symbol>
+    <symbol id="i-caret" viewBox="0 0 24 24"><path d="m7 10 5 5 5-5" fill="none" stroke="currentColor" stroke-width="1.8"/></symbol>
+    <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="1.8"/></symbol>
+    <symbol id="i-x" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18" stroke="currentColor" stroke-width="1.8"/></symbol>
+    <symbol id="i-expand" viewBox="0 0 24 24"><path d="M14 4h6v6M10 20H4v-6M20 4l-7 7M4 20l7-7" fill="none" stroke="currentColor" stroke-width="1.6"/></symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M12 7.5V12l3 2" fill="none" stroke="currentColor" stroke-width="1.5"/></symbol>
+    <symbol id="i-grip" viewBox="0 0 24 24"><g fill="currentColor"><circle cx="9" cy="6" r="1.4"/><circle cx="15" cy="6" r="1.4"/><circle cx="9" cy="12" r="1.4"/><circle cx="15" cy="12" r="1.4"/><circle cx="9" cy="18" r="1.4"/><circle cx="15" cy="18" r="1.4"/></g></symbol>
+    <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="m16 16 4.5 4.5" stroke="currentColor" stroke-width="1.6"/></symbol>
+    <symbol id="i-ext" viewBox="0 0 24 24"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5" fill="none" stroke="currentColor" stroke-width="1.6"/></symbol>
+    <symbol id="i-gear" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 1 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 1 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></g></symbol>
+    <symbol id="i-code" viewBox="0 0 24 24"><path d="m8 8-4 4 4 4m8-8 4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.6"/></symbol>
+    <symbol id="i-caret-r" viewBox="0 0 24 24"><path d="m10 7 5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.8"/></symbol>
+    <symbol id="i-watch" viewBox="0 0 24 24"><path d="M9 4h6v2H9zM10 6h4l4 11H6z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><path d="M4 20h16" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></symbol>
+    <symbol id="i-net" viewBox="0 0 24 24"><rect x="9" y="3" width="6" height="5" rx="1" fill="none" stroke="currentColor" stroke-width="1.5"/><rect x="3" y="16" width="6" height="5" rx="1" fill="none" stroke="currentColor" stroke-width="1.5"/><rect x="15" y="16" width="6" height="5" rx="1" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M12 8v4M6 16v-4h12v4" fill="none" stroke="currentColor" stroke-width="1.5"/></symbol>
+    <symbol id="i-news" viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M8 9h8M8 12.5h8M8 16h5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></symbol>
+    <symbol id="i-intel" viewBox="0 0 24 24"><circle cx="6" cy="7" r="2.3" fill="none" stroke="currentColor" stroke-width="1.5"/><circle cx="18" cy="6" r="2.3" fill="none" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="17.5" r="2.5" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M8.2 7.2l7.5-.8M7.1 9l3.9 6.4M16.8 8.1l-3.6 7.2" stroke="currentColor" stroke-width="1.4"/></symbol>
+    <symbol id="i-ops" viewBox="0 0 24 24"><rect x="3.5" y="4" width="7.5" height="9" rx="1.2" fill="none" stroke="currentColor" stroke-width="1.5"/><rect x="13" y="4" width="7.5" height="5" rx="1.2" fill="none" stroke="currentColor" stroke-width="1.5"/><rect x="13" y="11" width="7.5" height="9" rx="1.2" fill="none" stroke="currentColor" stroke-width="1.5"/><rect x="3.5" y="15" width="7.5" height="5" rx="1.2" fill="none" stroke="currentColor" stroke-width="1.5"/></symbol>
+    <symbol id="i-more" viewBox="0 0 24 24"><g fill="currentColor"><circle cx="6" cy="12" r="1.7"/><circle cx="12" cy="12" r="1.7"/><circle cx="18" cy="12" r="1.7"/></g></symbol>
+    <symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M3.5 12h17M12 3.5c2.6 2.4 3.8 5.2 3.8 8.5s-1.2 6.1-3.8 8.5c-2.6-2.4-3.8-5.2-3.8-8.5S9.4 5.9 12 3.5Z" fill="none" stroke="currentColor" stroke-width="1.4"/></symbol>
+    <symbol id="i-note" viewBox="0 0 24 24"><path d="M6 3.5h9l3.5 3.5v13.5H6z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><path d="M9 11h6M9 14.5h6M9 18h4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></symbol>
+    <symbol id="i-help" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M9.6 9.4a2.5 2.5 0 1 1 3.6 2.3c-.8.4-1.2 1-1.2 1.8v.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><circle cx="12" cy="16.8" r=".9" fill="currentColor"/></symbol>
+  </svg>
+
+  <!-- Stale-code check (okf/architecture/web-client.md#updates). This page is always revalidated, so it is current;
+       the scripts may be older copies the browser kept, from a server that did not yet send no-cache. A current main.js
+       sets window.ndMain at once; if none did by the time the page has loaded, offer the way out. Self-contained
+       (inline styles, no other file), because app.css and every module may be the old copies. Inline on purpose:
+       the server's Content-Security-Policy allows it by its sha256 hash, computed from this file (api.py csp()). -->
+  <script>
+  (function () {
+    var cookie = 'nd_build' + (location.port ? '_' + location.port : '');
+    // re-fetch every file this page loaded past the cache (works on any origin), forget the build cookie, reload
+    window.ndClearAndReload = function () {
+      var urls = performance.getEntriesByType('resource').map(function (e) { return e.name; })
+        .filter(function (u) { return u.indexOf(location.origin) === 0 && u.indexOf('/api/') < 0; });
+      urls.push(new URL('js/main.js', document.baseURI).href, new URL('js/core/shell.js', document.baseURI).href,
+        new URL('css/app.css', document.baseURI).href);
+      var done = Promise.all(urls.map(function (u) { return fetch(u, { cache: 'reload' }).catch(function () {}); }));
+      Promise.race([done, new Promise(function (r) { setTimeout(r, 4000); })]).then(function () {
+        document.cookie = cookie + '=; Max-Age=0; Path=/; SameSite=Strict';
+        location.reload();
+      });
+    };
+    window.addEventListener('load', function () {
+      setTimeout(function () {
+        if (window.ndMain === 1 || document.getElementById('nd-stale')) return;
+        var d = document.createElement('div');
+        d.id = 'nd-stale'; d.setAttribute('role', 'alert');
+        d.style.cssText = 'position:fixed;inset:0;z-index:2147483000;display:flex;align-items:center;justify-content:center;padding:16px;background:rgba(10,13,18,.94);color:#e9e3d4;font:14px/1.5 Inter,system-ui,sans-serif;text-align:center';
+        d.innerHTML = '<div style="max-width:420px"><p style="font:600 22px/1.3 Fraunces,Georgia,serif;margin:0 0 10px">Night Desk didn\'t load</p>'
+          + '<p style="color:#b7b1a2;margin:0 0 18px">Part of the app is an older copy your browser kept.</p>'
+          + '<button type="button" style="min-height:44px;padding:0 16px;border-radius:5px;border:1px solid #e4a84c;background:#e4a84c;color:#1a1408;font:500 13px/1 ui-monospace,Menlo,monospace;cursor:pointer">Clear cached files and reload</button></div>';
+        document.body.appendChild(d);
+        var b = d.querySelector('button');
+        b.addEventListener('click', function () { b.disabled = true; b.textContent = 'Clearing…'; window.ndClearAndReload(); });
+        b.focus();
+      }, 400);
+    });
+  })();
+  </script>
+  <!-- Pages and Back (Back/Forward move between URL pages; overlays close with ×/Esc), scroll per entry and the phone
+       tab bar: before main.js, so it sees every entry the app makes (core/page.js). -->
+  <script src="js/core/storage-names.js"></script>
+  <script type="module" src="js/core/page.js"></script>
+  <script type="module" src="js/main.js"></script>
+  <!-- Desktop: the chart, map, grid and globe libraries once the page is idle (a phone loads only what the view on
+       screen needs). js/core/preload.js -->
+  <script type="module" src="js/core/preload.js"></script>
+</body>
+</html>

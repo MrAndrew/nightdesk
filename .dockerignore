@@ -1,0 +1,13 @@
+# Only what the image needs (see Dockerfile): the package sources, the web client, the docs and the lock file.
+*
+!pyproject.toml
+!uv.lock
+!README.md
+!LICENSE
+!NOTICE
+!osinthub/
+!web/
+!okf/
+**/__pycache__
+**/*.pyc
+**/.DS_Store

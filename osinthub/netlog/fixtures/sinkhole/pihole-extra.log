@@ -1,0 +1,8 @@
+Oct 14 10:15:00 dnsmasq[812]: 4101 10.86.24.21/50211 query[A] www.example.com from 10.86.24.21
+Oct 14 10:15:00 dnsmasq[812]: 4102 10.86.24.33/41000 query[A] ads.tracker.example from 10.86.24.33
+Oct 14 10:15:00 dnsmasq[812]: 4101 10.86.24.21/50211 forwarded www.example.com to 192.0.2.53
+Oct 14 10:15:00 dnsmasq[812]: 4102 10.86.24.33/41000 gravity blocked ads.tracker.example is 0.0.0.0
+Oct 14 10:15:00 dnsmasq[812]: 4101 10.86.24.21/50211 reply www.example.com is 198.51.100.20
+Oct 14 10:15:01 dnsmasq[812]: 4103 10.86.24.40/53999 query[A] beacon.c2-relay.example from 10.86.24.40
+Oct 14 10:15:01 dnsmasq[812]: 4103 10.86.24.40/53999 forwarded beacon.c2-relay.example to 192.0.2.53
+Oct 14 10:15:01 dnsmasq[812]: 4103 10.86.24.40/53999 reply beacon.c2-relay.example is 203.0.113.66

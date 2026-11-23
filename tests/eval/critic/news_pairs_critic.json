@@ -1,0 +1,185 @@
+{
+ "description": "30 critic-written pairs (independent of builder), 2026-11-05",
+ "pairs": [
+  {
+   "a": "https://blog.talosintelligence.com/two-critical-rces-in-php-core/",
+   "b": "https://krebsonsecurity.com/2026/10/widespread-php-flaw-may-cause-many-site-outages-today/",
+   "same": true,
+   "why": "PHP2Shell: Talos advisory vs Krebs news, same day"
+  },
+  {
+   "a": "https://www.elastic.co/security-labs/threat-command/php2shell-php-rce-detection",
+   "b": "https://unit42.paloaltonetworks.com/cve-2026-109618-cve-2026-109619/",
+   "same": true,
+   "why": "PHP2Shell CVE-2026-109618/9: Elastic coverage vs Unit 42 threat brief, 9 days"
+  },
+  {
+   "a": "https://www.darkreading.com/application-security/exposed-php2shell-cyber-experts-advice",
+   "b": "https://www.welivesecurity.com/en/videos/php2shell-what-know-two-critical-php-flaws/",
+   "same": true,
+   "why": "PHP2Shell: Dark Reading expert advice vs ESET explainer, 3 days"
+  },
+  {
+   "a": "https://www.microsoft.com/en-us/security/blog/2026/09/30/unauthenticated-command-injection-on-internet-facing-mail-servers-tracking-cve-2026-73570/",
+   "b": "https://www.elastic.co/security-labs/threat-command/command-injection-zimbra-cve-2026-73570",
+   "same": true,
+   "why": "CVE-2026-73570 Zimbra: Microsoft vs Elastic, 23 days apart"
+  },
+  {
+   "a": "https://blog.talosintelligence.com/microsoft-patch-tuesday-for-october-2026/",
+   "b": "https://krebsonsecurity.com/2026/10/microsoft-patches-more-than-1400-security-flaws/",
+   "same": true,
+   "why": "October 2026 Patch Tuesday: Talos vs Krebs"
+  },
+  {
+   "a": "https://thehackernews.com/2026/10/linux-kernel-tcp-flaw-with-98-cvss.html",
+   "b": "https://thehackernews.com/2026/11/red-hat-patches-98-rated-linux-tcp-rce.html",
+   "same": true,
+   "why": "CVE-2026-98432 Linux TCP: disclosure vs Red Hat fix, 5 days"
+  },
+  {
+   "a": "https://thehackernews.com/2026/10/wordpress-rce-flaw-draws-nearly-63000.html",
+   "b": "https://www.bleepingcomputer.com/news/security/cisa-flags-wordpress-rce-flaw-as-actively-exploited-in-attacks/",
+   "same": true,
+   "why": "WordPress core TOCTOU RCE: Wordfence attack counts vs CISA KEV, 5 days"
+  },
+  {
+   "a": "https://thehackernews.com/2026/10/binance-suffers-security-breach.html",
+   "b": "https://www.bleepingcomputer.com/news/security/binance-says-fake-job-interview-led-to-63-billion-crypto-heist/",
+   "same": true,
+   "why": "Binance heist: breach disclosure vs root cause"
+  },
+  {
+   "a": "https://thehackernews.com/2026/11/fbi-links-north-koreas-tradertraitor-to.html",
+   "b": "https://www.securityweek.com/rigged-coding-assignment-abused-ai-tool-opened-path-to-6-billion-binance-heist/",
+   "same": true,
+   "why": "Binance heist: FBI attribution vs root cause"
+  },
+  {
+   "a": "https://www.darkreading.com/cyberattacks-data-breaches/binance-hack-test-attack-paths",
+   "b": "https://www.helpnetsecurity.com/2026/11/04/binance-hack-north-korea-fake-job-interview/",
+   "same": true,
+   "why": "Binance heist: DR attack-path vs HNS fake interview"
+  },
+  {
+   "a": "https://www.bleepingcomputer.com/news/security/police-seizes-over-100-servers-in-investment-scam-crackdown/",
+   "b": "https://cyberscoop.com/europol-investment-scam-takedown/",
+   "same": true,
+   "why": "Europol investment fraud takedown"
+  },
+  {
+   "a": "https://www.microsoft.com/en-us/security/blog/2026/10/30/inside-malicious-claude-code-branded-cursor-extension-persistent-ssh-backdoor/",
+   "b": "https://www.darkreading.com/cyberattacks-data-breaches/devs-trojanized-claude-code-extension-cursor",
+   "same": true,
+   "why": "Trojanized Claude Code Cursor extension: Microsoft vs Dark Reading"
+  },
+  {
+   "a": "https://blog.talosintelligence.com/appraisal-by-ai-model-driven-victim-prioritization-in-the-volta-infostealer/",
+   "b": "https://thehackernews.com/2026/11/new-volta-infostealer-uses-claude.html",
+   "same": true,
+   "why": "VOLTA infostealer: Talos research vs THN coverage"
+  },
+  {
+   "a": "https://www.welivesecurity.com/en/eset-research/gorbag-orcs-border-harvesting-intelligence-ukraine/",
+   "b": "https://thehackernews.com/2026/11/russia-aligned-gorbag-hackers-exploit.html",
+   "same": true,
+   "why": "Gorbag: ESET research vs THN"
+  },
+  {
+   "a": "https://www.bleepingcomputer.com/news/security/uk-school-estate-hit-by-3am-ransomware-in-suspected-ai-assisted-attack/",
+   "b": "https://www.darkreading.com/data-privacy/3am-affiliate-ai-loops-european-school-attack",
+   "same": true,
+   "why": "3AM ransomware UK school attack"
+  },
+  {
+   "a": "https://krebsonsecurity.com/2026/10/shinyhunters-extorted-boeing-spin-off-prior-to-arrests/",
+   "b": "https://krebsonsecurity.com/2026/10/feds-suspect-ransom-negotiator-ran-shinyhunters-extortion-site/",
+   "same": false,
+   "why": "ShinyHunters: Boeing spin-off extortion vs negotiator ran leak site (same actor, different events)"
+  },
+  {
+   "a": "https://www.microsoft.com/en-us/security/blog/2026/10/29/tracking-ai-adoption-in-north-korean-threat-actor-tradecraft/",
+   "b": "https://thehackernews.com/2026/10/binance-suffers-security-breach.html",
+   "same": false,
+   "why": "North Korea: Microsoft AI-tradecraft report vs Binance breach"
+  },
+  {
+   "a": "https://www.securityweek.com/north-korea-launches-missiles-toward-the-sea-as-pyongyang-protests-against-us-claims-on-binance-hack/",
+   "b": "https://thehackernews.com/2026/11/fbi-links-north-koreas-tradertraitor-to.html",
+   "same": false,
+   "why": "NK missile launch protest vs FBI attribution (follow-on, different event)"
+  },
+  {
+   "a": "https://www.bleepingcomputer.com/news/security/workos-says-attacker-used-artex-ai-to-breach-internal-sales-app/",
+   "b": "https://thehackernews.com/2026/10/chinese-hackers-use-ai-powered-artex-to.html",
+   "same": false,
+   "why": "ARTEX: WorkOS breach vs CrowdStrike Vapor Panda campaign (same tool, different incident)"
+  },
+  {
+   "a": "https://www.securityweek.com/ai-linked-breaches-mount-as-workos-northflank-trigger-dev-disclose-hacks/",
+   "b": "https://www.bleepingcomputer.com/news/security/workos-says-attacker-used-artex-ai-to-breach-internal-sales-app/",
+   "same": false,
+   "why": "Roundup of AI-platform breaches vs single WorkOS breach"
+  },
+  {
+   "a": "https://thehackernews.com/2026/11/weekly-recap-critical-cves-linux-ddos.html",
+   "b": "https://www.bleepingcomputer.com/news/security/binance-says-fake-job-interview-led-to-63-billion-crypto-heist/",
+   "same": false,
+   "why": "THN weekly recap vs single Binance story"
+  },
+  {
+   "a": "https://thehackernews.com/2026/10/threatsday-critical-firewall-flaws.html",
+   "b": "https://unit42.paloaltonetworks.com/cve-2026-109618-cve-2026-109619/",
+   "same": false,
+   "why": "ThreatsDay bulletin vs Unit 42 PHP2Shell brief"
+  },
+  {
+   "a": "https://unit42.paloaltonetworks.com/blinder-tunnel-targets-critical-infrastructure/",
+   "b": "https://thehackernews.com/2026/11/darkblinders-compromises-israeli-target.html",
+   "same": false,
+   "why": "Iranian Blinder Tunnel (Unit 42) vs DarkBlinders (Dream Labs): different campaigns"
+  },
+  {
+   "a": "https://thehackernews.com/2026/10/chainalysis-confirms-intrusion-into.html",
+   "b": "https://thehackernews.com/2026/11/chainstack-reports-production-systems.html",
+   "same": false,
+   "why": "Chainalysis intrusion vs Chainstack breach"
+  },
+  {
+   "a": "https://thehackernews.com/2026/11/attackers-target-unpatched.html",
+   "b": "https://thehackernews.com/2026/11/hackers-exploit-btcpay-server-flaw-to.html",
+   "same": false,
+   "why": "CryptoPayment Gateway WP plugin vs BTCPay Server thefts"
+  },
+  {
+   "a": "https://thehackernews.com/2026/11/apt29-linked-hackers-hijack-web.html",
+   "b": "https://thehackernews.com/2026/11/hackers-steal-about-27-million-from.html",
+   "same": false,
+   "why": "APT29 analytics-script hijack vs Polymarket DebugBear script hijack"
+  },
+  {
+   "a": "https://blog.talosintelligence.com/ir-trends-q3-2026/",
+   "b": "https://www.microsoft.com/en-us/security/blog/2026/10/30/help-desk-impersonation-ad-cs-abuse-investigating-esc1-esc8-intrusion-paths/",
+   "same": false,
+   "why": "Talos IR quarterly trends (help desk vishing) vs Microsoft help-desk AD CS intrusion"
+  },
+  {
+   "a": "https://www.helpnetsecurity.com/2026/11/04/blueflag-ai-agent-governance/",
+   "b": "https://www.securityweek.com/sysdig-adds-runtime-security-and-governance-for-ai-agents/",
+   "same": false,
+   "why": "BlueFlag vs Sysdig AI-agent product launches, same day"
+  },
+  {
+   "a": "https://therecord.media/ukraine-kyiv-independent-cyberattack",
+   "b": "https://therecord.media/russia-cyberattack-beget-cloud",
+   "same": false,
+   "why": "Kyiv Independent attack vs Beget hosting wipe, same outlet same day"
+  },
+  {
+   "a": "https://thehackernews.com/2026/11/google-patches-critical-android-flaw.html",
+   "b": "https://www.bleepingcomputer.com/news/security/hackers-use-n-day-exploits-in-zero-click-attacks-on-ios-android-devices/",
+   "same": false,
+   "why": "Android November patch RCE vs n-day zero-click iOS/Android exploitation"
+  }
+ ]
+}

@@ -1,0 +1,112 @@
+# Night Desk. An install made before the project was renamed keeps its old project name through ND_PROJECT in its
+# .env (deploy/install.sh writes it), so its containers and data volumes stay attached.
+name: nightdesk
+
+services:
+  app:
+    build: .
+    restart: unless-stopped
+    # The installing user's ids (the installer sets them), so files in a host data folder (LAKE_DIR) belong to you.
+    user: "${ND_UID:-1000}:${ND_GID:-1000}"
+    environment:
+      OSINTHUB_LAKE: /data
+      # The host folder behind /data (LAKE_DIR), so the app can show where to copy log files. Empty = the named volume.
+      OSINTHUB_LAKE_HOST: ${LAKE_DIR:-}
+      # The installer's folder on the host, so Settings › Data can show the exact command that moves the data folder.
+      OSINTHUB_INSTALL_DIR: ${NIGHTDESK_HOME:-}
+      OSINTHUB_OFFLINE: ${OSINTHUB_OFFLINE:-0}
+      # The SQL console is off unless one of these is 1 (okf/architecture/api.md#sql-console).
+      OSINTHUB_SQL_CONSOLE: ${OSINTHUB_SQL_CONSOLE:-0}
+      OSINTHUB_DEBUG: ${OSINTHUB_DEBUG:-0}
+      OSINTHUB_VECTORS: ${OSINTHUB_VECTORS:-auto}
+      # DNS-rebinding guard: the app answers only Host names it knows. Caddy forwards the browser's
+      # Host (the names in HLTA_HOSTS) unchanged, so the same list is allowed here.
+      OSINTHUB_ALLOWED_HOSTS: ${HLTA_HOSTS:-nightdesk.localhost, localhost}
+      # The app binds 0.0.0.0 inside the container, which it refuses to do without a password, unless a proxy in
+      # front asks for one. Here Caddy does (basic_auth, HLTA_AUTH_HASH) and is the only way in, so the app trusts it
+      # and does not ask a second time. Only ever set this when a proxy in front does the sign-in.
+      OSINTHUB_TRUST_PROXY_AUTH: "1"
+      # Trust Caddy's X-Forwarded-Proto (https) so the app's same-origin check on writes sees the browser's
+      # scheme. Safe here: 8787 is reachable only on the internal Compose network. (The device-upload
+      # listener on 8788 ignores proxy headers.)
+      FORWARDED_ALLOW_IPS: "*"
+      QDRANT_URL: ${QDRANT_URL:-http://qdrant:6333}
+      QDRANT_API_KEY: ${QDRANT_API_KEY:-}
+      # The local AI helper runs on the host (MLX needs the Mac GPU): uv run python -m osinthub.ai.server
+      AI_URL: ${AI_URL:-http://host.docker.internal:8790}
+      # The helper's token, when the helper has one (AI_TOKEN; required if it listens beyond loopback).
+      AI_TOKEN: ${AI_TOKEN:-}
+      # Device log uploads (Network → Connect logs; details under Advanced). Nothing listens until you turn
+      # uploads on in the app. Set INGEST_URL to how devices reach this host, e.g. https://192.0.2.10:8788
+      OSINTHUB_INGEST_HOST: 0.0.0.0
+      OSINTHUB_INGEST_PORT: "8788"
+      OSINTHUB_INGEST_URL: ${INGEST_URL:-}
+      # Optional source keys (see .env.example). Empty = the source runs without it or stays off.
+      ABUSECH_AUTH_KEY: ${ABUSECH_AUTH_KEY:-}
+      RANSOMWARELIVE_API_KEY: ${RANSOMWARELIVE_API_KEY:-}
+      # Your own CARTO key: the world map's online basemaps (see .env.example). Empty = local basemap only.
+      CARTO_API_KEY: ${CARTO_API_KEY:-}
+      # Passed only when set, so the app's own defaults apply otherwise (an empty URL would break the source).
+      RANSOMWARELIVE_API_URL:
+      RANSOMWARELIVE_API_KEY_HEADER:
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    volumes:
+      # Raw files, reference data, uploads and the DuckDB file. The installer sets LAKE_DIR to a host folder (by
+      # default this computer's app-data folder, the same one a native run uses); empty = the named volume "lake".
+      - ${LAKE_DIR:-lake}:/data
+    # The app's own sign-in is off here (OSINTHUB_TRUST_PROXY_AUTH). Never add 8787 under `ports:` — only Caddy
+    # (HTTPS + basic auth) is published to the network; it reaches the app on the internal Compose network.
+    expose:
+      - "8787"
+    # Device log uploads only (a separate listener with per-sender tokens, off until enabled in the app).
+    # Published on the same address as the dashboard (ND_BIND), so "this computer only" covers it too.
+    ports:
+      - "${ND_BIND:-127.0.0.1}:${INGEST_PORT:-8788}:8788"
+
+  caddy:
+    image: caddy:2.8.4-alpine
+    restart: unless-stopped
+    depends_on:
+      - app
+    environment:
+      # Host name(s)/IP(s) the TLS certificate is issued for (comma- or space-separated); see deploy/Caddyfile.
+      HLTA_HOSTS: ${HLTA_HOSTS:-nightdesk.localhost, localhost}
+      # Who can reach it: 127.0.0.1 = this computer only (no sign-in), 0.0.0.0 = your network too (password).
+      # Caddy refuses to start on any other value (deploy/Caddyfile).
+      ND_BIND: ${ND_BIND:-127.0.0.1}
+      # HTTP basic auth, used when ND_BIND=0.0.0.0. Credentials come from .env (the installer writes a hash;
+      # never commit them). Caddy will not start on the network without HLTA_AUTH_HASH. See .env.example.
+      HLTA_AUTH_USER: ${HLTA_AUTH_USER:-nightdeskuser}
+      HLTA_AUTH_HASH: ${HLTA_AUTH_HASH:-}
+      # Caddy listens on the same port inside the container as on the host (see deploy/Caddyfile). Plain HTTP is
+      # not published: the address to open is always https://.
+      HTTP_PORT: ${HTTP_PORT:-8080}
+      HTTPS_PORT: ${HTTPS_PORT:-8443}
+    ports:
+      - "${ND_BIND:-127.0.0.1}:${HTTPS_PORT:-8443}:${HTTPS_PORT:-8443}"    # the dashboard, encrypted
+    volumes:
+      - ./deploy/Caddyfile:/etc/caddy/Caddyfile:ro
+      - ./deploy/reach-127.0.0.1.caddy:/etc/caddy/reach-127.0.0.1.caddy:ro
+      - ./deploy/reach-0.0.0.0.caddy:/etc/caddy/reach-0.0.0.0.caddy:ro
+      - caddy_data:/data            # also holds the internal CA, so the cert survives restarts
+      - caddy_config:/config
+
+  # Optional vector index for semantic search with local AI (a derived index; the app rebuilds it from the lake and
+  # uses DuckDB vectors when Qdrant is not running). Off unless started with: docker compose --profile qdrant up -d
+  qdrant:
+    image: qdrant/qdrant:v1.20.0
+    profiles: ["qdrant"]
+    restart: unless-stopped
+    environment:
+      QDRANT__SERVICE__API_KEY: ${QDRANT_API_KEY:-}
+    volumes:
+      - qdrant:/qdrant/storage
+    expose:
+      - "6333"
+
+volumes:
+  lake:
+  caddy_data:
+  caddy_config:
+  qdrant:

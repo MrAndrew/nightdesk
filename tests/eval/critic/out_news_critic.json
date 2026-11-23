@@ -1,0 +1,15 @@
+{
+ "pair_acc": 0.9666666666666667,
+ "misses": [
+  {
+   "label_same": true,
+   "why": "October 2026 Patch Tuesday: Talos vs Krebs",
+   "a": "Microsoft Patch Tuesday for October 2026 \u2014 Snort rules and prominent vulnerabilities",
+   "b": "Microsoft Patches More Than 1,400 Security Flaws"
+  }
+ ],
+ "recall5": {
+  "hybrid": 0.9866666666666667,
+  "keyword": 0.9311111111111111
+ }
+}

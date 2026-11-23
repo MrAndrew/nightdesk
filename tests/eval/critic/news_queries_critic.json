@@ -1,0 +1,108 @@
+{
+ "description": "15 critic-written home-user queries; recall@5 = |expected in top5| / min(|expected|,5)",
+ "queries": [
+  {
+   "q": "is my Synology NAS at risk of ransomware",
+   "expected": [
+    "https://thehackernews.com/2026/11/synology-nas-devices-targeted-in.html"
+   ]
+  },
+  {
+   "q": "how much crypto was stolen from Binance and who did it",
+   "expected": [
+    "https://thehackernews.com/2026/10/binance-suffers-security-breach.html",
+    "https://thehackernews.com/2026/11/binance-reveals-how-fake-job-interviews.html",
+    "https://thehackernews.com/2026/11/fbi-links-north-koreas-tradertraitor-to.html",
+    "https://www.bleepingcomputer.com/news/security/binance-says-fake-job-interview-led-to-63-billion-crypto-heist/",
+    "https://www.darkreading.com/cyberattacks-data-breaches/binance-hack-test-attack-paths",
+    "https://www.helpnetsecurity.com/2026/11/04/binance-hack-north-korea-fake-job-interview/",
+    "https://www.securityweek.com/rigged-coding-assignment-abused-ai-tool-opened-path-to-6-billion-binance-heist/"
+   ]
+  },
+  {
+   "q": "how many bugs did Microsoft fix in October's updates",
+   "expected": [
+    "https://blog.talosintelligence.com/microsoft-patch-tuesday-for-october-2026/",
+    "https://krebsonsecurity.com/2026/10/microsoft-patches-more-than-1400-security-flaws/"
+   ]
+  },
+  {
+   "q": "mSecure password manager hacked what should I do",
+   "expected": [
+    "https://thehackernews.com/2026/11/msecure-warns-users-to-change-passwords.html",
+    "https://www.bleepingcomputer.com/news/security/msecure-password-manager-hack-prompts-password-reset-warnings/"
+   ]
+  },
+  {
+   "q": "university leaked info of 851,000 people",
+   "expected": [
+    "https://www.bleepingcomputer.com/news/security/harvard-university-data-breach-exposed-info-of-851-000-accounts/"
+   ]
+  },
+  {
+   "q": "email server bug in Zimbra being exploited",
+   "expected": [
+    "https://www.elastic.co/security-labs/threat-command/command-injection-zimbra-cve-2026-73570",
+    "https://www.microsoft.com/en-us/security/blog/2026/09/30/unauthenticated-command-injection-on-internet-facing-mail-servers-tracking-cve-2026-73570/"
+   ]
+  },
+  {
+   "q": "fake free Robux offers scamming kids",
+   "expected": [
+    "https://www.welivesecurity.com/en/kids-online/looking-for-free-robux-heres-whats-real-whats-scam/"
+   ]
+  },
+  {
+   "q": "Chrome update with lots of security fixes",
+   "expected": [
+    "https://www.securityweek.com/chrome-157-rolls-out-with-213-security-fixes-seven-rated-critical/"
+   ]
+  },
+  {
+   "q": "can I get hacked just by answering a Telegram call",
+   "expected": [
+    "https://thehackernews.com/2026/10/telegram-android-flaw-lets-attackers.html"
+   ]
+  },
+  {
+   "q": "Linux kernel networking bug rated 9.8, is there a fix for Ubuntu yet",
+   "expected": [
+    "https://thehackernews.com/2026/10/linux-kernel-tcp-flaw-with-98-cvss.html",
+    "https://thehackernews.com/2026/11/red-hat-patches-98-rated-linux-tcp-rce.html"
+   ]
+  },
+  {
+   "q": "Russian web host had its cloud servers wiped",
+   "expected": [
+    "https://therecord.media/russia-cyberattack-beget-cloud"
+   ]
+  },
+  {
+   "q": "WordPress sites getting hacked while updating",
+   "expected": [
+    "https://thehackernews.com/2026/10/wordpress-rce-flaw-draws-nearly-63000.html",
+    "https://thehackernews.com/2026/11/cisa-confirms-hackers-exploiting.html",
+    "https://www.bleepingcomputer.com/news/security/cisa-flags-wordpress-rce-flaw-as-actively-exploited-in-attacks/"
+   ]
+  },
+  {
+   "q": "hackers messed with fridges storing blood in France",
+   "expected": [
+    "https://www.bleepingcomputer.com/news/security/cyberattack-disrupts-blood-storage-refrigeration-systems-in-france/",
+    "https://www.helpnetsecurity.com/2026/11/04/cyberattack-hits-french-blood-banks/"
+   ]
+  },
+  {
+   "q": "game launcher hacked to install spyware",
+   "expected": [
+    "https://www.bleepingcomputer.com/news/security/nikke-pc-game-launcher-hacked-to-spread-remote-access-data-stealing-malware/"
+   ]
+  },
+  {
+   "q": "Medicare scam calls during open enrollment",
+   "expected": [
+    "https://www.welivesecurity.com/en/scams/medicare-open-enrollment-season-scams/"
+   ]
+  }
+ ]
+}

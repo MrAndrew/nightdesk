@@ -1,0 +1,45 @@
+{"id": "q01", "q": "Is there a bug in Fortinet's web app firewall where someone without a login can run their own database queries?", "answer": "CVE-2025-25257", "also_accept": [], "difficulty": "vendor"}
+{"id": "q02", "q": "My old TP-Link WR841N router: can someone fake their way past the web login and pull out the saved passwords?", "answer": "CVE-2023-50224", "also_accept": [], "difficulty": "vendor"}
+{"id": "q03", "q": "Can a Palo Alto firewall be forced to restart just by sending it a malformed DNS packet?", "answer": "CVE-2024-3393", "also_accept": [], "difficulty": "vendor"}
+{"id": "q04", "q": "Which Palo Alto Expedition flaw lets an outsider dump its database with password hashes and firewall API keys?", "answer": "CVE-2024-9465", "also_accept": [], "difficulty": "vendor"}
+{"id": "q05", "q": "QNAP NAS with the photo app installed: is there an access control hole that lets remote people get into the box?", "answer": "CVE-2019-7192", "also_accept": [], "difficulty": "vendor"}
+{"id": "q06", "q": "Config management master server lets remote users call internal functions without logging in, steal tokens and run commands on the agents", "answer": "CVE-2020-11651", "also_accept": [], "difficulty": "product"}
+{"id": "q07", "q": "that hijacked JavaScript code-style config package whose install script launched malware on Windows", "answer": "CVE-2025-54313", "also_accept": [], "difficulty": "vague"}
+{"id": "q08", "q": "Messaging app bug where device-linking sync messages could make my phone load content from any web address", "answer": "CVE-2025-55177", "also_accept": [], "difficulty": "product"}
+{"id": "q09", "q": "Graph database server remote code execution due to broken access control", "answer": "CVE-2024-27348", "also_accept": [], "difficulty": "product"}
+{"id": "q10", "q": "GLPI remote code execution that comes from a bundled third-party HTML cleaning library", "answer": "CVE-2022-35914", "also_accept": [], "difficulty": "vendor"}
+{"id": "q11", "q": "SimpleHelp single sign-on login that accepts identity tokens without checking their signature, so you can forge a technician session", "answer": "CVE-2026-48558", "also_accept": [], "difficulty": "vendor"}
+{"id": "q12", "q": "Zoho ManageEngine unauthenticated takeover caused by an outdated Apache XML security library", "answer": "CVE-2022-47966", "also_accept": [], "difficulty": "vendor"}
+{"id": "q13", "q": "Django GIS: can a crafted coordinate system string make the server fetch URLs or read local files?", "answer": "CVE-2026-114582", "also_accept": [], "difficulty": "vendor"}
+{"id": "q14", "q": "NVIDIA Slurm: a user tweaks the node list with arbitrary distribution and lands on compute nodes outside their job", "answer": "CVE-2026-65165", "also_accept": [], "difficulty": "vendor"}
+{"id": "q15", "q": "Locked iPhone: can someone holding it switch off the USB lockdown protection?", "answer": "CVE-2025-24200", "also_accept": [], "difficulty": "vendor"}
+{"id": "q16", "q": "Cisco firewall appliance with an overflow in its SNMP handling that can give code execution", "answer": "CVE-2016-6366", "also_accept": [], "difficulty": "vendor"}
+{"id": "q17", "q": "OpenBSD's mail server running commands as root from a crafted SMTP conversation", "answer": "CVE-2020-7247", "also_accept": [], "difficulty": "vendor"}
+{"id": "q18", "q": "MDaemon mail server cross-site scripting triggered by opening an HTML email", "answer": "CVE-2024-11182", "also_accept": [], "difficulty": "vendor"}
+{"id": "q19", "q": "Sophos Cyberoam firewall admin web page SQL injection without logging in", "answer": "CVE-2020-29574", "also_accept": [], "difficulty": "vendor"}
+{"id": "q20", "q": "The ping feature on some D-Link and TRENDnet devices that lets attackers run code", "answer": "CVE-2015-1187", "also_accept": [], "difficulty": "vendor"}
+{"id": "q21", "q": "Elastic's Beats and Agent Docker images ship a bad system CA bundle so TLS can be intercepted", "answer": "CVE-2026-115714", "also_accept": [], "difficulty": "vendor"}
+{"id": "q22", "q": ".NET Framework bug that leaks an internal remoting object URI and ends in code execution", "answer": "CVE-2024-29059", "also_accept": [], "difficulty": "vendor"}
+{"id": "q23", "q": "A VPN browser extension for Firefox leaks my proxy username and password to any site that shows a basic login prompt", "answer": "CVE-2026-120627", "also_accept": [], "difficulty": "product"}
+{"id": "q24", "q": "The container image build daemon panics and crashes when one build looks up the same git repository twice", "answer": "CVE-2026-121522", "also_accept": [], "difficulty": "product"}
+{"id": "q25", "q": "Web hosting control panel: unauthenticated command injection through the file manager's change-permissions request", "answer": "CVE-2025-48703", "also_accept": [], "difficulty": "product"}
+{"id": "q26", "q": "A PostgreSQL ODBC connector puts its debug logs in the shared temp folder readable by everyone and follows symlinks", "answer": "CVE-2026-120066", "also_accept": [], "difficulty": "product"}
+{"id": "q27", "q": "Network video recorder box with command injection through the upload folder setting", "answer": "CVE-2018-14933", "also_accept": [], "difficulty": "product"}
+{"id": "q28", "q": "Artifact repository server: someone who can push container manifests can plant script that runs when another user opens the attestations view", "answer": "CVE-2026-113369", "also_accept": [], "difficulty": "product"}
+{"id": "q29", "q": "Kubernetes cluster manager's proxy endpoint logs a blocked destination but still forwards the request anyway", "answer": "CVE-2026-88809", "also_accept": [], "difficulty": "product"}
+{"id": "q30", "q": "Database client library keeps leaking memory without limit when a rogue server sends compressed replies", "answer": "CVE-2026-120678", "also_accept": [], "difficulty": "product"}
+{"id": "q31", "q": "Database server's outbound deny rules can be dodged with a JWT key-set URL that leaves out the default port", "answer": "CVE-2026-121422", "also_accept": [], "difficulty": "product"}
+{"id": "q32", "q": "IRC server daemon overflow when a linked server sends an extremely long kill reason", "answer": "CVE-2026-121603", "also_accept": [], "difficulty": "product"}
+{"id": "q33", "q": "Network flow collector that will allocate gigabytes per connection if a compressed stream header claims a huge buffer", "answer": "CVE-2026-122129", "also_accept": [], "difficulty": "product"}
+{"id": "q34", "q": "The dev server for a cross-platform mobile app framework lets anyone on the network run programs with a POST request", "answer": "CVE-2025-11953", "also_accept": [], "difficulty": "product"}
+{"id": "q35", "q": "Kernel bug where IPsec decryption writes over cached file pages, chainable to get webshells as root", "answer": "CVE-2026-46300", "also_accept": [], "difficulty": "product"}
+{"id": "q36", "q": "A health insurance app on Android lets another app overwrite its files by sharing a file with a sneaky name", "answer": "CVE-2026-58128", "also_accept": [], "difficulty": "product"}
+{"id": "q37", "q": "HR system where regular employees can look up other employees' expense advance records", "answer": "CVE-2026-121442", "also_accept": [], "difficulty": "product"}
+{"id": "q38", "q": "Webmail stored XSS through link references in plain text messages", "answer": "CVE-2023-43770", "also_accept": [], "difficulty": "product"}
+{"id": "q39", "q": "Analytics dashboard platform path traversal that hands an unauthenticated attacker an anonymous session", "answer": "CVE-2023-41266", "also_accept": [], "difficulty": "product"}
+{"id": "q40", "q": "Enterprise email security appliance path traversal letting an unauthenticated attacker write any file on the OS", "answer": "CVE-2026-76519", "also_accept": [], "difficulty": "product"}
+{"id": "q41", "q": "the one where a popular JavaScript library's npm releases were hijacked to push credential stealers under its own trusted name", "answer": "CVE-2026-45321", "also_accept": [], "difficulty": "vague"}
+{"id": "q42", "q": "conference room gear whose built-in wifi hotspot uses a short all-numbers default password", "answer": "CVE-2026-122118", "also_accept": [], "difficulty": "vague"}
+{"id": "q43", "q": "the container build tool that hands cloud login tokens to any registry whose hostname merely contains the cloud registry domain", "answer": "CVE-2026-105769", "also_accept": [], "difficulty": "vague"}
+{"id": "q44", "q": "self-hosted docs app where logged-in users can read everyone's private templates just by counting up an id", "answer": "CVE-2026-120427", "also_accept": [], "difficulty": "vague"}
+{"id": "q45", "q": "firmware bug in some cheap home routers where the speed test feature takes a host argument that runs shell commands", "answer": "CVE-2026-121607", "also_accept": [], "difficulty": "vague"}

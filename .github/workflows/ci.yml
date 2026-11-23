@@ -1,0 +1,65 @@
+# CI for every pull request and push: the OKF bundles, the release scan, lint, the unit suite and the browser
+# journeys, on Linux. The same file runs in the development repo and the public one; in the public repo the OKF check
+# also fails if a private/ folder slipped through the export. What each job means: CONTRIBUTING.md#what-ci-checks
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches: [main, v1.2]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  checks:
+    name: Docs, release scan and lint
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - name: OKF bundles
+        run: python3 tools/okf_check.py ${{ github.event.repository.private && ' ' || '--public' }}
+      - name: Release scan (no personal info or secrets in tracked files)
+        run: python3 tools/release_scan.py
+      - uses: astral-sh/setup-uv@v6
+      - name: Lint
+        run: uvx ruff check osinthub tests tools
+
+  unit:
+    name: Unit and API tests
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v6
+      - run: uv python install 3.14
+      - name: Unit suite
+        run: uv run --quiet --with pytest pytest -q -p no:cacheprovider tests --ignore=tests/soak --ignore=tests/eval
+
+  e2e:
+    name: Browser journeys
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v6
+      - run: uv python install 3.14
+      - name: Browser
+        run: uv run --quiet --with playwright playwright install --with-deps chromium
+      - name: End-to-end journeys
+        env:
+          ND_E2E_CHANNEL: ""
+          ND_E2E_ARTIFACTS: ${{ runner.temp }}/e2e
+        run: uv run --quiet --with playwright --with pytest pytest -q -p no:cacheprovider tests/e2e
+      - name: Screenshots of failures
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: e2e-artifacts
+          path: ${{ runner.temp }}/e2e
+          if-no-files-found: ignore

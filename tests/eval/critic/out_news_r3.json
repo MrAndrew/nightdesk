@@ -1,0 +1,80 @@
+{
+ "pairs": {
+  "accuracy": 1.0,
+  "n": 30,
+  "same_recall": 1.0,
+  "diff_specificity": 1.0,
+  "by_category": {
+   "same-cve": "1/1",
+   "research-vs-rewrite": "3/3",
+   "same-event": "10/10",
+   "translation": "1/1",
+   "roundup-vs-single": "5/5",
+   "same-tool": "1/1",
+   "same-platform": "1/1",
+   "same-actor": "2/2",
+   "lookalike-names": "1/1",
+   "same-outlet": "1/1",
+   "same-product": "2/2",
+   "same-genre": "1/1",
+   "same-brand": "1/1"
+  },
+  "misses": []
+ },
+ "queries": {
+  "hybrid": {
+   "recall@5": 0.933,
+   "hit@5": 0.933,
+   "misses": [
+    {
+     "q": "online shop software bug that lets anyone skip the login and people are exploiting it",
+     "recall": 0.0,
+     "rank_of_expected": [
+      30
+     ],
+     "top5": [
+      "ShinyHunters Extorted Boeing Spin-off Prior to Arrests",
+      "TeamViewer Flaw Lets Remote Computers Attack Users Who Conne",
+      "Critical Langflow Flaws Could Let Unauthenticated Attackers ",
+      "\u26a1 Weekly Recap: Critical CVEs, Linux DDoS Botnet, Device-Cod",
+      "Dutch Police Arrest \u2018Reformed\u2019 Hacker in Shiny Hunters Inves"
+     ]
+    }
+   ]
+  },
+  "keyword": {
+   "recall@5": 0.867,
+   "hit@5": 0.867,
+   "misses": [
+    {
+     "q": "cloud server bug where one virtual machine can snoop on the others",
+     "recall": 0.0,
+     "rank_of_expected": [
+      6
+     ],
+     "top5": [
+      "Meta Shares Top Muse Bug Bounty Findings as Payouts Reach $1",
+      "'Aokigahara' Stealer Targets 'Developer Keyrings' & AI Assis",
+      "Webworm: New burrowing techniques",
+      "Cyberattack wipes cloud data at major Russian hosting provid",
+      "Linux Detection Engineering - Local Privilege Escalation"
+     ]
+    },
+    {
+     "q": "online shop software bug that lets anyone skip the login and people are exploiting it",
+     "recall": 0.0,
+     "rank_of_expected": [
+      null
+     ],
+     "top5": [
+      "Debian and Ubuntu APT Flaw Lets MitM Attackers Swap Verified",
+      "Microsoft Patches More Than 1,400 Security Flaws",
+      "TeamViewer Flaw Lets Remote Computers Attack Users Who Conne",
+      "Is that vibe coded app safe? 5 checks before you download",
+      "Telegram Android Flaw Lets Attackers Run Code When Users Ans"
+     ]
+    }
+   ]
+  }
+ }
+}

@@ -1,0 +1,16 @@
+.venv/
+__pycache__/
+logs/
+shots/
+*.duckdb*
+.DS_Store
+lake/
+.env
+
+# HLTA eval caches and reference screenshots (third-party content)
+tests/eval/cache/
+tests/eval/out/
+
+# One machine's notes (drive and host names, start commands): never committed. Development context for all
+# maintainers is in private/okf/ (development repo only).
+.local/

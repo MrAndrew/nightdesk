@@ -1,0 +1,35 @@
+{
+ "pairs": {
+  "accuracy": 1.0,
+  "n": 30,
+  "misses": []
+ },
+ "search": {
+  "hybrid": {
+   "recall@5": 1.0,
+   "misses": []
+  },
+  "keyword": {
+   "recall@5": 1.0,
+   "misses": []
+  },
+  "collapse_story_violations": []
+ },
+ "corroboration": {
+  "stories_checked": 30,
+  "count_issues": [],
+  "tier_vs_outlet_mismatch": [],
+  "tier_A": [
+   {
+    "id": "7b72d51a9df2e88a",
+    "source": "Cisco Talos",
+    "title": "Inside KeyDrift: Analyzing historical UAT-11473 activity on Cisco SD-WAN"
+   },
+   {
+    "id": "0968634953edacaf",
+    "source": "Unit 42",
+    "title": "Active Exploitation of May 2026 PAN-OS CVE-2026-0257 (Updated October 20)"
+   }
+  ]
+ }
+}

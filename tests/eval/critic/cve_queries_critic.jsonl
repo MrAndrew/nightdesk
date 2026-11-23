@@ -1,0 +1,20 @@
+{"id": "c01", "q": "A Java helper library for unpacking archives writes files outside the target folder because the chained builder-style extraction call trusts entry names", "answer": "CVE-2026-63436", "also_accept": [], "difficulty": "hard"}
+{"id": "c02", "q": "Nothing throttles the forgot-my-password endpoint, so someone can flood one user with reset mails", "answer": "CVE-2026-108048", "also_accept": [], "difficulty": "vague"}
+{"id": "c03", "q": "NAS operating system where misuse of PHP extract() gives remote root code execution", "answer": "CVE-2020-5847", "also_accept": [], "difficulty": "product"}
+{"id": "c04", "q": "Message broker leaks memory until it dies when a client subscribes to a temp queue that belongs to another connection", "answer": "CVE-2026-108949", "also_accept": [], "difficulty": "hard"}
+{"id": "c05", "q": "The tiny boa web server inside a chipmaker's access point SDK crashes on overly long form fields", "answer": "CVE-2021-35395", "also_accept": [], "difficulty": "product"}
+{"id": "c06", "q": "BI dashboard tool where installs that never changed the shipped signing key let anyone authenticate", "answer": "CVE-2023-27524", "also_accept": [], "difficulty": "hard"}
+{"id": "c07", "q": "Old D-Link network storage boxes have a baked-in account that leads to running commands", "answer": "CVE-2024-3272", "also_accept": [], "difficulty": "vendor"}
+{"id": "c08", "q": "Distributed coordination service thread crashes when someone writes under the world-writable quota tree", "answer": "CVE-2026-100300", "also_accept": [], "difficulty": "hard"}
+{"id": "c09", "q": "Web hosting control panel: a zero byte in the request exposes every mailbox's calendar and address book", "answer": "CVE-2026-105475", "also_accept": [], "difficulty": "hard"}
+{"id": "c10", "q": "Online shop software lets buyers redeem a one-time discount code many times by placing simultaneous orders", "answer": "CVE-2026-121628", "also_accept": [], "difficulty": "vague"}
+{"id": "c11", "q": "Fiber ONT gateway exposes admin services through UPnP SOAP on port 5555 with no password", "answer": "CVE-2026-117082", "also_accept": [], "difficulty": "product"}
+{"id": "c12", "q": "Exporting a document to PDF in the old Apache office suite overflows the stack when it contains a malicious font", "answer": "CVE-2026-90628", "also_accept": [], "difficulty": "product"}
+{"id": "c13", "q": "Terminal file manager plugin executes shell code if a file name contains a double quote", "answer": "CVE-2026-121548", "also_accept": [], "difficulty": "hard"}
+{"id": "c14", "q": "Postgres ODBC driver overflows a fixed array on the stack when a scalar function escape has too many arguments", "answer": "CVE-2026-120061", "also_accept": [], "difficulty": "product"}
+{"id": "c15", "q": "Kubernetes cluster manager's metadata proxy forwards users' credentials on to cloud vendors", "answer": "CVE-2026-88811", "also_accept": [], "difficulty": "product"}
+{"id": "c16", "q": "WordPress photo gallery plugin lets anonymous visitors make the site fetch internal addresses and show the result", "answer": "CVE-2026-105967", "also_accept": [], "difficulty": "vague"}
+{"id": "c17", "q": "Elixir login library keeps a stolen session token valid even after the victim changes their password", "answer": "CVE-2026-110826", "also_accept": [], "difficulty": "hard"}
+{"id": "c18", "q": "Embedded RTOS network stack, IPv6 raw socket sends use a routing table entry without checking it was actually added", "answer": "CVE-2026-115403", "also_accept": [], "difficulty": "hard"}
+{"id": "c19", "q": "Help desk ticketing app where its own local service account can escalate to root, chained with another bug, and is exploited in the wild", "answer": "CVE-2026-102490", "also_accept": [], "difficulty": "vague"}
+{"id": "c20", "q": "Gaming laptop control software from Dell accepts code that isn't properly signed, letting an admin escalate", "answer": "CVE-2026-91899", "also_accept": [], "difficulty": "vendor"}

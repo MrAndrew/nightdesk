@@ -1,0 +1,96 @@
+{
+ "resultsPerPage": 4,
+ "startIndex": 0,
+ "totalResults": 4,
+ "format": "NVD_CVE",
+ "version": "2.0",
+ "vulnerabilities": [
+  {
+   "cve": {
+    "id": "CVE-2026-90001",
+    "published": "2026-11-16T10:15:00.000",
+    "vulnStatus": "Received",
+    "descriptions": [
+     {
+      "lang": "en",
+      "value": "The vendor&#39;s &quot;Example Gate&quot; R&amp;D build lets a remote attacker inject &lt;script&gt;alert(1)&lt;/script&gt; through the name field."
+     },
+     {
+      "lang": "es",
+      "value": "La versi&oacute;n de Example Gate"
+     }
+    ],
+    "metrics": {
+     "cvssMetricV31": [
+      {
+       "cvssData": {
+        "baseScore": 9.8,
+        "baseSeverity": "CRITICAL"
+       }
+      }
+     ]
+    },
+    "references": [
+     {
+      "url": "https://vendor.example/advisory?id=1&amp;lang=en"
+     }
+    ]
+   }
+  },
+  {
+   "cve": {
+    "id": "CVE-2026-90002",
+    "published": "2026-11-16T11:15:00.000",
+    "vulnStatus": "Received",
+    "descriptions": [
+     {
+      "lang": "en",
+      "value": "AT&T Example routers and the Q&notes app: a && b, &copy law, price &pound5 and &foo; stay as written."
+     }
+    ],
+    "metrics": {
+     "cvssMetricV31": [
+      {
+       "cvssData": {
+        "baseScore": 5.3,
+        "baseSeverity": "MEDIUM"
+       }
+      }
+     ]
+    },
+    "references": [
+     {
+      "url": "https://vendor.example/kb?a=1&b=2"
+     }
+    ]
+   }
+  },
+  {
+   "cve": {
+    "id": "CVE-2026-90003",
+    "published": "2026-11-16T12:15:00.000",
+    "vulnStatus": "Received",
+    "descriptions": [
+     {
+      "lang": "en",
+      "value": "Smith &amp;amp; Sons portal renders &lt;img src=x onerror=alert(1)&gt; from the\nsearch box (double-encoded by the CNA)."
+     }
+    ],
+    "metrics": {}
+   }
+  },
+  {
+   "cve": {
+    "id": "CVE-2026-90004",
+    "published": "2026-11-16T13:15:00.000",
+    "vulnStatus": "Rejected",
+    "descriptions": [
+     {
+      "lang": "en",
+      "value": "** REJECT ** Not a vuln &amp; never was."
+     }
+    ]
+   }
+  }
+ ]
+}

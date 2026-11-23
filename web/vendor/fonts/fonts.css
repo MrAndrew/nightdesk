@@ -1,0 +1,14 @@
+/* Vendored webfonts (@fontsource/inter@5.1.0, @fontsource/jetbrains-mono@5.1.0, @fontsource/fraunces@5.3.0, SIL OFL 1.1),
+   latin subset. Replaces the Google Fonts stylesheet so the app renders the same with no internet. Fraunces carries
+   only the faces the --serif stack in css/app.css uses: 400, 500, 600 and 400 italic. */
+@font-face { font-family: Inter; font-style: normal; font-display: swap; font-weight: 400; src: url(inter@5.1.0/inter-latin-400-normal.woff2) format('woff2'); }
+@font-face { font-family: Inter; font-style: normal; font-display: swap; font-weight: 500; src: url(inter@5.1.0/inter-latin-500-normal.woff2) format('woff2'); }
+@font-face { font-family: Inter; font-style: normal; font-display: swap; font-weight: 600; src: url(inter@5.1.0/inter-latin-600-normal.woff2) format('woff2'); }
+@font-face { font-family: Inter; font-style: normal; font-display: swap; font-weight: 700; src: url(inter@5.1.0/inter-latin-700-normal.woff2) format('woff2'); }
+@font-face { font-family: "JetBrains Mono"; font-style: normal; font-display: swap; font-weight: 400; src: url(jetbrains-mono@5.1.0/jetbrains-mono-latin-400-normal.woff2) format('woff2'); }
+@font-face { font-family: "JetBrains Mono"; font-style: normal; font-display: swap; font-weight: 500; src: url(jetbrains-mono@5.1.0/jetbrains-mono-latin-500-normal.woff2) format('woff2'); }
+@font-face { font-family: "JetBrains Mono"; font-style: normal; font-display: swap; font-weight: 600; src: url(jetbrains-mono@5.1.0/jetbrains-mono-latin-600-normal.woff2) format('woff2'); }
+@font-face { font-family: Fraunces; font-style: normal; font-display: swap; font-weight: 400; src: url(fraunces@5.3.0/fraunces-latin-400-normal.woff2) format('woff2'); }
+@font-face { font-family: Fraunces; font-style: normal; font-display: swap; font-weight: 500; src: url(fraunces@5.3.0/fraunces-latin-500-normal.woff2) format('woff2'); }
+@font-face { font-family: Fraunces; font-style: normal; font-display: swap; font-weight: 600; src: url(fraunces@5.3.0/fraunces-latin-600-normal.woff2) format('woff2'); }
+@font-face { font-family: Fraunces; font-style: italic; font-display: swap; font-weight: 400; src: url(fraunces@5.3.0/fraunces-latin-400-italic.woff2) format('woff2'); }

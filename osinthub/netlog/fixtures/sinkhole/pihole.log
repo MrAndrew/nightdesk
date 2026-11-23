@@ -1,0 +1,24 @@
+Oct 14 09:00:01 dnsmasq[812]: query[A] www.example.com from 10.86.24.21
+Oct 14 09:00:01 dnsmasq[812]: forwarded www.example.com to 192.0.2.53
+Oct 14 09:00:01 dnsmasq[812]: reply www.example.com is <CNAME>
+Oct 14 09:00:01 dnsmasq[812]: reply edge.example.net is 198.51.100.20
+Oct 14 09:00:01 dnsmasq[812]: reply edge.example.net is 198.51.100.21
+Oct 14 09:00:02 dnsmasq[812]: query[AAAA] www.example.com from 10.86.24.21
+Oct 14 09:00:02 dnsmasq[812]: cached www.example.com is <CNAME>
+Oct 14 09:00:02 dnsmasq[812]: cached edge.example.net is 2001:db8:20::20
+Oct 14 09:00:05 dnsmasq[812]: query[A] ads.tracker.example from 10.86.24.33
+Oct 14 09:00:05 dnsmasq[812]: gravity blocked ads.tracker.example is 0.0.0.0
+Oct 14 09:00:06 dnsmasq[812]: query[HTTPS] metrics.telemetry.example from 10.86.24.33
+Oct 14 09:00:06 dnsmasq[812]: regex denied metrics.telemetry.example is NODATA
+Oct 14 09:00:07 dnsmasq[812]: query[A] beacon.c2-relay.example from 10.86.24.40
+Oct 14 09:00:07 dnsmasq[812]: exactly denied beacon.c2-relay.example is 0.0.0.0
+Oct 14 09:00:09 dnsmasq[812]: query[A] nothere.example.org from fd4e:6400:d35c::40
+Oct 14 09:00:09 dnsmasq[812]: forwarded nothere.example.org to 192.0.2.53
+Oct 14 09:00:09 dnsmasq[812]: reply nothere.example.org is NXDOMAIN
+Oct 14 09:00:11 dnsmasq[812]: query[A] pi.hole from 10.86.24.21
+Oct 14 09:00:11 dnsmasq[812]: Pi-hole hostname pi.hole is 10.86.24.2
+Oct 14 09:00:12 dnsmasq[812]: query[A] slow.example.org from 10.86.24.21
+Oct 14 09:00:12 dnsmasq[812]: forwarded slow.example.org to 192.0.2.53
+Oct 14 09:00:13 dnsmasq[812]: query[PTR] 2.24.86.10.in-addr.arpa from 10.86.24.21
+Oct 14 09:00:13 dnsmasq[812]: config 2.24.86.10.in-addr.arpa is pi.hole
+Oct 14 09:00:14 dnsmasq[812]: started, version pi-hole-v2.90+1 cachesize 10000

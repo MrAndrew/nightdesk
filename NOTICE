@@ -1,0 +1,112 @@
+# NOTICE: third-party software, fonts and data in Night Desk
+
+Night Desk is Copyright 2026 The Night Desk authors, licensed under the PolyForm Noncommercial License 1.0.0 (see LICENSE). That licence
+covers Night Desk's own code and documentation only. The third-party material below keeps its own licence; the full
+licence texts sit next to each library in `web/vendor/`.
+
+Night Desk ships **no feed data**. Each install fetches data itself, from the sources the user turns on, and the
+terms of each source apply to that user. They are listed in the app (Help › Sources, and the first-run "Choose your
+sources" step) and summarised at the end of this file.
+
+## Your data and the sources you turn on
+
+Night Desk runs on your computer and stores what the sources you turn on send it. You are responsible for how you
+keep, use and share that data, and for following each source's terms.
+
+## Software bundled in `web/vendor/`
+
+| Component | Version | Licence | Copyright / notice |
+|---|---|---|---|
+| Apache ECharts | 5.5.1 | Apache-2.0 | Its NOTICE is reproduced below. Embeds parts of d3.js (BSD-3-Clause, Copyright 2010-2016 Mike Bostock). |
+| Cytoscape.js | 3.30.2 | MIT | Copyright (c) 2016-2024, The Cytoscape Consortium. |
+| gridstack.js | 10.3.1 | MIT | Copyright (c) 2019-2023 Alain Dumesny. v0.4.0 and older (c) 2014-2018 Pavel Reznikov, Dylan Weiss. |
+| MapLibre GL JS | 5.24.1 | BSD-3-Clause | Copyright (c) 2023, MapLibre contributors. Contains code from mapbox-gl-js v1.13 and earlier (BSD-3-Clause, Copyright (c) 2020, Mapbox), glfx.js (MIT, Copyright (C) 2011 by Evan Wallace) and d3-color (BSD-3-Clause, Copyright 2010-2016 Mike Bostock). |
+| globe.gl | 2.32.4 | MIT | Copyright (c) 2019 Vasco Asturiano. The bundle includes three.js (MIT, Copyright © 2010-2024 three.js authors), three-globe (MIT, Copyright (c) 2019 Vasco Asturiano), h3-js (Apache-2.0, Copyright Uber Technologies, Inc.) and the Helvetiker typeface (Copyright (c) 2004 by MAGENTA Ltd., MgOpen licence). |
+
+Apache ECharts NOTICE (verbatim, from the echarts@5.5.1 package):
+
+```
+Apache ECharts
+Copyright 2017-2024 The Apache Software Foundation
+
+This product includes software developed at
+The Apache Software Foundation (https://www.apache.org/).
+```
+
+## Fonts
+
+| Font | Version | Licence | Copyright |
+|---|---|---|---|
+| Inter | 5.1.0 (via @fontsource) | SIL Open Font License 1.1 | Copyright 2016 The Inter Project Authors (https://github.com/rsms/inter) |
+| JetBrains Mono | 5.1.0 (via @fontsource) | SIL Open Font License 1.1 | Copyright 2020 The JetBrains Mono Project Authors (https://github.com/JetBrains/JetBrainsMono) |
+| Fraunces | 5.3.0 (via @fontsource) | SIL Open Font License 1.1 | Copyright 2020 The Fraunces Project Authors (https://github.com/undercasetype/Fraunces) |
+| Map label glyphs (`web/vendor/glyphs/`): Montserrat SemiBold, Open Sans Bold, Noto Sans Regular | 0-255 range | SIL Open Font License 1.1 (`web/vendor/glyphs/OFL.txt`) | Copyright 2011 The Montserrat Project Authors; Copyright 2020 The Open Sans Project Authors; Copyright 2022 The Noto Project Authors |
+
+## Images
+
+`web/vendor/nasa/`: blue-marble.jpg (Blue Marble: Land Surface, Shallow Water, and Shaded Topography, 2002),
+black-marble.jpg (Earth at Night, Black Marble 2012) and topography.png (Blue Marble topography, SRTM). NASA imagery,
+published without copyright; credit NASA Earth Observatory / NASA Visible Earth. Source and scaling of each file:
+`web/vendor/nasa/SOURCES.md`.
+
+## Data shipped in the repository
+
+* **Test fixtures** (`tests/`): short excerpts of the abuse.ch SSL Blacklist (CC0, https://sslbl.abuse.ch), FIRST
+  EPSS scores (EPSS by FIRST, https://www.first.org/epss), CISA CSAF advisories (US Government work) and MITRE ATT&CK
+  (see below). Everything else in the fixtures is synthetic.
+
+## Reference data downloaded by each install (not shipped)
+
+* **IP geolocation and ASN:** DB-IP Lite, licensed under CC BY 4.0. IP Geolocation by DB-IP (https://db-ip.com).
+* **MITRE ATT&CK®:** © 2026 The MITRE Corporation. This work is reproduced and distributed with the permission of The
+  MITRE Corporation. MITRE ATT&CK and ATT&CK are registered trademarks of The MITRE Corporation.
+  Licence: https://attack.mitre.org/resources/legal-and-branding/terms-of-use/
+* **MISP galaxy clusters** (threat-actor, tool, malpedia): CC0 1.0 or 2-clause BSD, by the MISP Project
+  (https://github.com/MISP/misp-galaxy). The malpedia cluster is based on Malpedia by Fraunhofer FKIE
+  (https://malpedia.caad.fkie.fraunhofer.de), whose own content is CC BY-NC-SA 3.0.
+* **Public Suffix List** (MPL-2.0, https://publicsuffix.org) and the **IANA TLD list** (https://www.iana.org).
+* **Country shapes:** Made with Natural Earth. Free vector and raster map data @ naturalearthdata.com (public domain).
+* **Undersea cables and landing points** (only after the user turns the cable layer on): Submarine Cable Map ©
+  TeleGeography (https://www.submarinecablemap.com).
+* **Popular-domain list for the network allowlist:** the current Tranco list, downloaded by each install.
+* **Optional online basemaps** (off by default; only with the user's own CARTO key): © OpenStreetMap contributors,
+  © CARTO.
+* **Optional local AI models** (off by default, Apple silicon): Qwen3 chat and Qwen3-Embedding-0.6B by the Qwen team,
+  Apache-2.0, downloaded from Hugging Face.
+
+## Data sources the app can fetch
+
+Credits and terms in brief. The in-app list has the full wording and links.
+
+| Source | Credit | Terms in brief |
+|---|---|---|
+| CISA Known Exploited Vulnerabilities, CISA CSAF advisories | CISA | CC0 1.0 / US Government work; no CISA endorsement |
+| NVD | NIST NVD | This product uses the NVD API but is not endorsed or certified by the NVD. |
+| EPSS | EPSS by FIRST (https://www.first.org/epss); scores by Empirical Security | Free, attribution requested |
+| Feodo Tracker, SSL Blacklist | abuse.ch | CC0; abuse.ch Terms of Use (no AI use) |
+| ThreatFox, URLhaus | abuse.ch | Free for not-for-profit use with your own key; no redistribution, derivatives or AI use |
+| Tor exit list | The Tor Project | CC0 |
+| Spamhaus DROP | The Spamhaus Project | Free under the DROP terms; revocable; at most one download a day |
+| DShield top attackers | SANS Internet Storm Center | CC BY-NC-SA 4.0; protecting your own network is fine; no resale |
+| blocklist.de, CINS Army, Emerging Threats compromised hosts | blocklist.de; CINS Army (Sentinel IPS); Proofpoint Emerging Threats | No formal licence stated |
+| IODA outages | IODA, Georgia Tech | No terms stated |
+| RIS Live, RIPEstat | RIPE NCC | RIPEstat: no commercial use or redistribution without written permission |
+| RPKI signed routes | Cloudflare (rpki.cloudflare.com), rpki-client console | No terms stated |
+| Cloudflare Radar BGP | Cloudflare Radar | CC BY-NC 4.0; your own token |
+| ransomware.live | Ransomware.live (https://www.ransomware.live) | Non-commercial use with attribution |
+| Bluesky cyber chatter | Bluesky Social (via Jetstream) | Bluesky developer guidelines |
+| Security news feeds | Each publisher | Publisher copyright: headlines, summaries and links; articles are fetched for reading on your own machine |
+
+## Python dependencies
+
+Installed from PyPI by `uv` (and included in the Docker image), not stored in this repository. All are under
+permissive or file-level copyleft licences: MIT, BSD-2-Clause, BSD-3-Clause, Apache-2.0, ISC, PSF-2.0, 0BSD, Zlib,
+CC0-1.0, MPL-2.0 (certifi, tqdm) and MPL-1.1 (tld, chosen from its MPL-1.1 / GPL-2.0 / LGPL-2.1+ options). Direct
+dependencies: certifi, cryptography, duckdb, fastapi, feedparser, httpx, maxminddb, numpy, python-multipart, pytz,
+trafilatura, uvicorn, websockets; on macOS, mlx-lm. The full list with versions is in `uv.lock`.
+
+## Docker image
+
+Built on the official `python:3.14-slim` image (Python: PSF License; Debian packages under their own licences, sources
+at https://sources.debian.org) with `uv` (MIT or Apache-2.0). The Compose file can also run Caddy (Apache-2.0) and
+Qdrant (Apache-2.0).

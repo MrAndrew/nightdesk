@@ -1,0 +1,18 @@
+[
+ {
+  "group": "examplegroup",
+  "victim": "Smith &amp; Sons Ltd",
+  "discovered": "2026-11-15 08:00:00",
+  "attackdate": "2026-11-01",
+  "description": "Leak of 40 GB &#8211; HR &amp; finance files &lt;b&gt;soon&lt;/b&gt;",
+  "country": "gb",
+  "url": "https://leak.example/post?id=7&amp;x=1"
+ },
+ {
+  "group": "othergroup",
+  "victim": "AT&T Example Co",
+  "discovered": "2026-11-15 09:00:00",
+  "description": "plain text, nothing encoded",
+  "country": "us"
+ }
+]

@@ -1,0 +1,2 @@
+# ND_BIND=127.0.0.1: the HTTPS port is published on this computer's loopback address only, so only this computer can
+# reach it. No sign-in, as for a native run on 127.0.0.1. (See deploy/Caddyfile.)

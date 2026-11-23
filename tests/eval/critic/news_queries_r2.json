@@ -1,0 +1,142 @@
+{
+ "description": "Round-2 critic home-user queries; recall@5 = |expected in top5| / min(|expected|,5)",
+ "queries": [
+  {
+   "q": "can someone hack my phone without me tapping anything, is there an Android update",
+   "expected": [
+    "https://thehackernews.com/2026/11/google-patches-critical-android-flaw.html"
+   ],
+   "expected_ids": [
+    "32c90d2f095832b7"
+   ]
+  },
+  {
+   "q": "I use TeamViewer to help my parents, is connecting to their computer dangerous",
+   "expected": [
+    "https://thehackernews.com/2026/10/teamviewer-flaw-lets-remote-computers.html"
+   ],
+   "expected_ids": [
+    "bfec2004bdb16c89"
+   ]
+  },
+  {
+   "q": "hardware crypto wallet bought from a reseller might have something hidden inside",
+   "expected": [
+    "https://thehackernews.com/2026/10/trezor-warns-of-suspected-hardware.html"
+   ],
+   "expected_ids": [
+    "4eafb481bfd904bc"
+   ]
+  },
+  {
+   "q": "how long does my phone company keep records of who I called",
+   "expected": [
+    "https://www.bleepingcomputer.com/news/security/your-mobile-carrier-stores-your-call-logs-for-years/"
+   ],
+   "expected_ids": [
+    "9c3bad316912929b"
+   ]
+  },
+  {
+   "q": "clicking a ChatGPT conversation link someone sent me could let them read my chats",
+   "expected": [
+    "https://thehackernews.com/2026/10/a-shared-chatgpt-link-could-run.html"
+   ],
+   "expected_ids": [
+    "e8eb82345a00ebfc"
+   ]
+  },
+  {
+   "q": "downloaded a ChatGPT desktop app and now my computer is mining crypto",
+   "expected": [
+    "https://thehackernews.com/2026/10/fake-chatgpt-and-claude-apps-abuse.html"
+   ],
+   "expected_ids": [
+    "8cc04215eff5794d"
+   ]
+  },
+  {
+   "q": "buying World Cup tickets online, how do I spot fake sites",
+   "expected": [
+    "https://www.welivesecurity.com/en/cybersecurity/foul-play-fake-fifa-world-cup-websites-tickets/"
+   ],
+   "expected_ids": [
+    "f42991445005d7a8"
+   ]
+  },
+  {
+   "q": "someone on the phone told me to pay a fine at a bitcoin machine",
+   "expected": [
+    "https://www.welivesecurity.com/en/scams/been-told-pay-bitcoin-atm-read-first/"
+   ],
+   "expected_ids": [
+    "8fc1d1ca6a8b3694"
+   ]
+  },
+  {
+   "q": "my website is hosted at DreamHost, were customer logins exposed",
+   "expected": [
+    "https://www.bleepingcomputer.com/news/security/dreamhost-confirms-data-breach-exposed-ftp-logins-and-webmail-sessions/"
+   ],
+   "expected_ids": [
+    "987ba3712202b5d9"
+   ]
+  },
+  {
+   "q": "suddenly getting hundreds of newsletter sign-up emails, what is going on",
+   "expected": [
+    "https://www.welivesecurity.com/en/cybersecurity/inbox-flooded-signup-messages-email-bombing/"
+   ],
+   "expected_ids": [
+    "8febc1af4490b296"
+   ]
+  },
+  {
+   "q": "calendar invite phishing that gets around two-factor authentication",
+   "expected": [
+    "https://www.bleepingcomputer.com/news/security/google-calendar-phishing-campaign-hijacks-sessions-bypasses-mfa/"
+   ],
+   "expected_ids": [
+    "7f254f8f8057e589"
+   ]
+  },
+  {
+   "q": "my kid wants to use an AI homework tutor, is it safe",
+   "expected": [
+    "https://www.welivesecurity.com/en/kids-online/ai-tutors-safe-kids/"
+   ],
+   "expected_ids": [
+    "b648cf971b5c9142"
+   ]
+  },
+  {
+   "q": "guy who posted a fake tweet that crashed the stock market went to prison",
+   "expected": [
+    "https://thehackernews.com/2026/10/syrian-hacker-behind-fake-tweet-that.html"
+   ],
+   "expected_ids": [
+    "6734aa3aec6c0e42"
+   ]
+  },
+  {
+   "q": "airline passengers' data leaked after a booking system provider was hacked",
+   "expected": [
+    "https://therecord.media/asian-airlines-announce-data-breach-it-provider-incident"
+   ],
+   "expected_ids": [
+    "71b12d48491a67a5"
+   ]
+  },
+  {
+   "q": "hackers stole money from the Bitcoin payment server I run for my shop",
+   "expected": [
+    "https://www.bleepingcomputer.com/news/security/btcpay-server-warns-of-hot-wallet-thefts-targeting-outdated-instances/",
+    "https://thehackernews.com/2026/11/hackers-exploit-btcpay-server-flaw-to.html"
+   ],
+   "expected_ids": [
+    "fd4dd8ae78f23bd0",
+    "07d9937fab38293a"
+   ]
+  }
+ ]
+}

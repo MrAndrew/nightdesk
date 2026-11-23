@@ -1,0 +1,105 @@
+{
+  "about": "Synthetic security news for the E2E journeys (tests/e2e/seed.py). Invented outlets, an invented CVE, documentation addresses (RFC 5737) and .example domains only. APT28 is the actor in the checked-in reference fixture tests/entities/fixtures/ref. e2e-art-1 also has a stored technique (T1566.001, which the ATT&CK reference fixture already lists for APT28: an article reporting a catalogue link), and e2e-art-4 carries a stored extraction result (what the local model returned for it), so the story page shows techniques of all three kinds offline: one the article names by id, likely ones and a possible one.",
+  "articles": [
+    {
+      "id": "e2e-art-1",
+      "url": "https://research.example/blog/examplegate-zero-day",
+      "source": "Example Research Lab",
+      "tier": "B",
+      "role": "research",
+      "hours_ago": 5,
+      "title": "APT28 exploits ExampleGate zero-day CVE-2026-1111",
+      "dek": "A state-backed group is breaking into ExampleGate VPN appliances through an unpatched flaw.",
+      "paragraphs": [
+        "Example Research Lab has seen APT28 exploit CVE-2026-1111, a critical flaw in ExampleGate VPN appliances, against small offices and home labs since early November.",
+        "The lab says the first break-ins began with spearphishing emails that carried a booby-trapped attachment.",
+        "The attackers used the server 203.0.113.7 for command and control and the domain evil-c2[.]example to stage their tools.",
+        "After the first break-in the group, also known as Fancy Bear, planted a web shell on each appliance and copied its configuration, including saved passwords.",
+        "ExampleGate owners should install the vendor's fixed release today, check their logs for any contact with 203.0.113.7, and change every password the appliance stored.",
+        "The lab shared its detection notes with the vendor, which confirmed the flaw and published an advisory for CVE-2026-1111.",
+        "Night Desk users can compare their own connection logs with the addresses named in this report from the story page."
+      ],
+      "extraction": {
+        "llm": false,
+        "techniques": [
+          "T1566.001"
+        ],
+        "technique_quotes": {
+          "T1566.001": "The lab says the first break-ins began with spearphishing emails that carried a booby-trapped attachment."
+        }
+      }
+    },
+    {
+      "id": "e2e-art-2",
+      "url": "https://northwind-security.example/posts/examplegate-campaign",
+      "source": "Northwind Security Blog",
+      "tier": "B",
+      "role": "research",
+      "hours_ago": 3,
+      "title": "More ExampleGate break-ins tied to APT28",
+      "dek": "A second team confirms the campaign against ExampleGate appliances.",
+      "paragraphs": [
+        "Northwind Security also saw APT28 exploit CVE-2026-1111 in ExampleGate VPN appliances, with traffic to 203.0.113.7 from every device it examined.",
+        "Its responders found the same web shell and the same staging domain, evil-c2[.]example, on appliances in three countries.",
+        "The team says the campaign is still running and that unpatched ExampleGate appliances are being found and broken into within hours.",
+        "Northwind recommends blocking 203.0.113.7 at the firewall while the fixed release is rolled out, and reviewing which accounts logged in to each appliance this month."
+      ]
+    },
+    {
+      "id": "e2e-art-3",
+      "url": "https://lamplight-news.example/2026/11/home-router-firmware",
+      "source": "Lamplight Security News",
+      "tier": "C",
+      "role": "newsroom",
+      "hours_ago": 8,
+      "title": "Router maker ships long-awaited firmware for older home models",
+      "dek": "An update for routers that stopped getting fixes two years ago.",
+      "paragraphs": [
+        "A router maker has shipped new firmware for home models it stopped updating two years ago, after owners asked for fixes to the web admin page.",
+        "The release closes several bugs in the admin page and turns on automatic updates by default.",
+        "Owners can install it from the admin page or let the router fetch it overnight.",
+        "The company says it will keep shipping security fixes for these models until the end of next year."
+      ]
+    },
+    {
+      "id": "e2e-art-4",
+      "url": "https://harbor-notes.example/2026/11/examplerat-invoices",
+      "source": "Harbor Threat Notes",
+      "tier": "B",
+      "role": "research",
+      "hours_ago": 6,
+      "title": "ExampleRAT phishing wave hits small accounting firms",
+      "dek": "Booby-trapped invoices open the door to a remote-access trojan.",
+      "paragraphs": [
+        "Harbor Threat Notes tracked a new ExampleRAT phishing wave against small accounting firms during November.",
+        "The emails carried a booby-trapped invoice document, the delivery method MITRE ATT&CK lists as T1566.001.",
+        "Once opened, ExampleRAT dropped a small web shell on the firm's internet-facing mail server so the operators could come back later.",
+        "The operators then searched shared folders for spreadsheets and text files that held saved passwords.",
+        "ExampleRAT talks to its operators over ordinary web traffic, which makes it hard to spot in firewall logs.",
+        "Firms should block macro-enabled invoices from outside senders and review which files on shared drives hold passwords."
+      ],
+      "extraction": {
+        "malware": [
+          "ExampleRAT"
+        ],
+        "techniques": [
+          "T1566.001",
+          "T1505.003",
+          "T1071.001"
+        ],
+        "suggested_techniques": [
+          "T1552.001"
+        ],
+        "technique_quotes": {
+          "T1505.003": "Once opened, ExampleRAT dropped a small web shell on the firm's internet-facing mail server so the operators could come back later.",
+          "T1552.001": "The operators then searched shared folders for spreadsheets and text files that held saved passwords."
+        },
+        "technique_names": {
+          "T1505.003": "Web Shell",
+          "T1071.001": "Web Protocols",
+          "T1552.001": "Credentials In Files"
+        }
+      }
+    }
+  ]
+}

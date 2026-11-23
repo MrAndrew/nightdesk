@@ -1,0 +1,33 @@
+{
+  "type": "bundle",
+  "id": "bundle--0f1e7c39-3c1d-4f0e-9d0b-6a2c3e4d5f60",
+  "objects": [
+    {
+      "type": "intrusion-set",
+      "id": "intrusion-set--bef4c620-0787-42a8-a96d-b7eb6e85917c",
+      "name": "APT28",
+      "aliases": ["APT28", "IRON TWILIGHT", "SNAKEMACKEREL", "Swallowtail", "Group 74", "Sednit", "Sofacy", "Pawn Storm", "Fancy Bear", "STRONTIUM", "Tsar Team", "Threat Group-4127", "TG-4127", "Forest Blizzard", "FROZENLAKE", "GruesomeLarch"],
+      "description": "APT28 is a threat group that has been attributed to Russia's General Staff Main Intelligence Directorate (GRU) 85th Main Special Service Center (GTsSS) military unit 26165.",
+      "external_references": [
+        {"source_name": "mitre-attack", "url": "https://attack.mitre.org/groups/G0007", "external_id": "G0007"}
+      ]
+    },
+    {
+      "type": "attack-pattern",
+      "id": "attack-pattern--a62a8db3-f23a-4d8f-afd6-9dbc77e7813b",
+      "name": "Spearphishing Attachment",
+      "kill_chain_phases": [{"kill_chain_name": "mitre-attack", "phase_name": "initial-access"}],
+      "description": "Adversaries may send spearphishing emails with a malicious attachment in an attempt to gain access to victim systems.",
+      "external_references": [
+        {"source_name": "mitre-attack", "url": "https://attack.mitre.org/techniques/T1566/001", "external_id": "T1566.001"}
+      ]
+    },
+    {
+      "type": "relationship",
+      "id": "relationship--2a5b1f9b-7c4d-4c1a-9c2e-2b7d1a9e0f11",
+      "relationship_type": "uses",
+      "source_ref": "intrusion-set--bef4c620-0787-42a8-a96d-b7eb6e85917c",
+      "target_ref": "attack-pattern--a62a8db3-f23a-4d8f-afd6-9dbc77e7813b"
+    }
+  ]
+}

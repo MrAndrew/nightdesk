@@ -1,0 +1,7 @@
+# ND_BIND=0.0.0.0: the HTTPS port is published on every network interface, so every request except the authority's
+# certificate needs the user name and password. Caddy will not start without HLTA_AUTH_HASH (a bcrypt hash; the
+# installer makes one), so the dashboard is never on the network without a password. (See deploy/Caddyfile.)
+@signin not path /ca/root.crt
+basic_auth @signin {
+	{$HLTA_AUTH_USER:nightdeskuser} {$HLTA_AUTH_HASH}
+}

@@ -1,0 +1,16 @@
+# gitleaks settings for this repo: its default rules, plus the few invented test values and one docstring it reads as
+# keys. Matched by text, not by commit fingerprint, so a fresh public export (a new commit) needs no new entries.
+title = "Night Desk"
+
+[extend]
+useDefault = true
+
+[[allowlists]]
+description = "Invented test values and a docstring that look like keys (none is a real secret)"
+regexTarget = "line"
+regexes = [
+  '''Last-token pooled, L2-normalised Qwen3 embeddings''',  # osinthub/ai/server.py docstring
+  '''"key": "test-key-0123456789"''',                        # tests/app/test_ai_chat.py: the key that must never show
+  '''token=invented-AbCdtok123''',                           # tests/security: an invented Gotify webhook token
+  '''KEY = "invented-key-0123456789abcdef"''',                # tests/app/test_install_env.py: the key .env keeps
+]

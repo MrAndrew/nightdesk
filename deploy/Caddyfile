@@ -1,0 +1,57 @@
+# Caddy serves Night Desk over HTTPS with a certificate from its own local authority (`tls internal`; the authority
+# persists in the caddy_data volume and the installer can trust it on this computer). The installer
+# (deploy/install.sh) writes the settings below into the install folder's .env; docker compose passes them in.
+#
+# Who can reach it is one setting, ND_BIND, the address the HTTPS port is published on (docker-compose.yml):
+#   127.0.0.1  this computer only (the default): no sign-in, like a native run on loopback
+#   0.0.0.0    devices on your network too: every request needs the password (basic auth, HLTA_AUTH_HASH)
+# Caddy reads the matching rule file, reach-<ND_BIND>.caddy. Any other value has no file, so Caddy refuses to start:
+# a hand edit can never put the dashboard on the network without a password.
+#
+# HLTA_HOSTS: the names the certificate is issued for and the app answers to (comma- or space-separated), e.g.
+#   HLTA_HOSTS="nightdesk.local, 192.0.2.10, localhost"
+# docker-compose.yml passes the same list to the app as OSINTHUB_ALLOWED_HOSTS (its DNS-rebinding guard).
+#
+# HTTPS_PORT: Caddy listens on the same port inside the container as on the host (docker-compose.yml maps it 1:1),
+# so the addresses it builds point at the port the browser can reach.
+
+{
+	http_port {$HTTP_PORT:8080}
+	https_port {$HTTPS_PORT:8443}
+	# The installer trusts the authority on the host; there is nothing to install inside this container.
+	skip_install_trust
+}
+
+{$HLTA_HOSTS:nightdesk.localhost, localhost} {
+	encode gzip
+
+	tls internal
+
+	# Security response headers (defence in depth; the app sets the same ones on its API responses).
+	header {
+		Strict-Transport-Security "max-age=31536000"
+		X-Content-Type-Options "nosniff"
+		X-Frame-Options "DENY"
+		Referrer-Policy "no-referrer"
+		-Server
+	}
+
+	# The local authority's public certificate, for other devices to trust (it is public; no sign-in needed).
+	handle /ca/root.crt {
+		root * /data/caddy/pki/authorities/local
+		rewrite * /root.crt
+		header Content-Type application/x-x509-ca-cert
+		header Content-Disposition "attachment; filename=nightdesk-root.crt"
+		file_server
+	}
+
+	# This computer only, or a password for everything except the certificate above.
+	import /etc/caddy/reach-{$ND_BIND:127.0.0.1}.caddy
+
+	handle {
+		reverse_proxy app:8787 {
+			# keep the live event stream (SSE) unbuffered
+			flush_interval -1
+		}
+	}
+}

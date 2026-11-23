@@ -1,0 +1,108 @@
+{
+ "description": "15 search queries, paraphrased rather than copied from headlines, with the articles a reader would expect in the top 5 (news builder, 2026-11-04). recall@5 = share of expected articles in the top 5, averaged.",
+ "queries": [
+  {
+   "q": "Android TV box proxy botnet dismantled by Google",
+   "expected": [
+    "https://www.bleepingcomputer.com/news/security/google-disrupts-million-device-xcpe-android-malware-botnet-bans-tv-box-maker/",
+    "https://krebsonsecurity.com/2026/11/tech-firms-dismantle-botnet-that-turned-1-3m-tv-boxes-into-proxies/"
+   ]
+  },
+  {
+   "q": "supply chain compromise of a web hosting security plugin's update server",
+   "expected": [
+    "https://thehackernews.com/2026/11/cpguard-update-channel-hijacked-to.html",
+    "https://www.helpnetsecurity.com/2026/11/04/cpguard-update-supply-chain-compromised/"
+   ]
+  },
+  {
+   "q": "North Korean hackers stole billions from a crypto exchange through a fake job interview",
+   "expected": [
+    "https://www.bleepingcomputer.com/news/security/binance-says-fake-job-interview-led-to-63-billion-crypto-heist/",
+    "https://www.helpnetsecurity.com/2026/11/04/binance-hack-north-korea-fake-job-interview/"
+   ]
+  },
+  {
+   "q": "remote code execution vulnerabilities in the PHP interpreter",
+   "expected": [
+    "https://blog.talosintelligence.com/two-critical-rces-in-php-core/",
+    "https://unit42.paloaltonetworks.com/cve-2026-109618-cve-2026-109619/"
+   ]
+  },
+  {
+   "q": "malicious Cursor extension impersonating Claude Code installs an SSH backdoor",
+   "expected": [
+    "https://www.microsoft.com/en-us/security/blog/2026/10/30/inside-malicious-claude-code-branded-cursor-extension-persistent-ssh-backdoor/"
+   ]
+  },
+  {
+   "q": "attackers tamper with refrigeration controllers in European grocery stores",
+   "expected": [
+    "https://thehackernews.com/2026/11/second-wave-of-cyberattacks-hits.html"
+   ]
+  },
+  {
+   "q": "stealer malware that asks LLMs to rank victims by how much money they are worth",
+   "expected": [
+    "https://blog.talosintelligence.com/appraisal-by-ai-model-driven-victim-prioritization-in-the-volta-infostealer/",
+    "https://thehackernews.com/2026/11/new-volta-infostealer-uses-claude.html"
+   ]
+  },
+  {
+   "q": "Russia-aligned espionage group targeting Ukraine exploits WinRAR",
+   "expected": [
+    "https://www.welivesecurity.com/en/eset-research/gorbag-orcs-border-harvesting-intelligence-ukraine/",
+    "https://thehackernews.com/2026/11/russia-aligned-gorbag-hackers-exploit.html"
+   ]
+  },
+  {
+   "q": "stolen cloud credentials used to run up AI model bills",
+   "expected": [
+    "https://www.bleepingcomputer.com/news/security/google-llmjacking-attacks-rack-up-1-million-in-cloud-ai-charges/",
+    "https://thehackernews.com/2026/11/google-warns-llmjacking-attacks-are.html"
+   ]
+  },
+  {
+   "q": "Canadian extradited for hacking university supercomputers to mine cryptocurrency",
+   "expected": [
+    "https://www.securityweek.com/canadian-extradited-to-us-over-cryptomining-hacks-on-university-supercomputers/",
+    "https://therecord.media/canadian-nationals-accused-us-education-hacks-cryptomining"
+   ]
+  },
+  {
+   "q": "watering hole attack serving iPhone and Android exploits linked to APT29",
+   "expected": [
+    "https://thehackernews.com/2026/11/apt29-linked-hackers-hijack-web.html",
+    "https://www.helpnetsecurity.com/2026/11/04/apt29-watering-hole-mobile-devices-n-day-exploits/"
+   ]
+  },
+  {
+   "q": "Barracuda email gateway authentication bypass to root",
+   "expected": [
+    "https://www.securityweek.com/barracuda-email-security-gateway-authentication-bypass-opens-path-to-root/",
+    "https://www.bleepingcomputer.com/news/security/barracuda-warns-of-critical-flaws-allowing-root-access-to-devices/"
+   ]
+  },
+  {
+   "q": "SonicWall will not fix flaws in end-of-life management software",
+   "expected": [
+    "https://www.bleepingcomputer.com/news/security/sonicwall-warns-of-unpatched-flaws-in-end-of-life-gms-software/",
+    "https://thehackernews.com/2026/11/sonicwall-wont-patch-eol-gms-flaws-that.html"
+   ]
+  },
+  {
+   "q": "Rails Active Storage ImageMagick arbitrary file write bug",
+   "expected": [
+    "https://thehackernews.com/2026/11/critical-rails-flaw-lets-attackers.html",
+    "https://www.darkreading.com/application-security/critical-rails-bug-derail-vulnerable-servers"
+   ]
+  },
+  {
+   "q": "intermediate certificate authority certificates compromised",
+   "expected": [
+    "https://blog.talosintelligence.com/compromised-intermediate-certificates/",
+    "https://unit42.paloaltonetworks.com/emudhra-certificate-compromise/"
+   ]
+  }
+ ]
+}

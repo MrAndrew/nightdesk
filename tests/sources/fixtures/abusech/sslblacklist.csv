@@ -1,0 +1,32 @@
+################################################################
+# abuse.ch SSLBL SSL Certificate Blacklist (SHA1 Fingerprints) #
+# Last updated: 2026-11-09 10:16:33 UTC                        #
+#                                                              #
+# Terms Of Use: https://sslbl.abuse.ch/blacklist/              #
+# For questions please contact sslbl [at] abuse.ch             #
+################################################################
+#
+# Listingdate,SHA1,Listingreason
+2026-11-09 10:16:33,abc4b076eb276da57cf8a36e7eeca9df713dd83c,PureLogsStealer C&C
+2026-11-09 10:06:09,19191f7bd7d31b4da986d645a6dfba8fef74fdf9,OffLoader C&C
+2026-11-09 10:05:08,4943decccfc5b78cd1d60fab5424bd93d5243aa3,FunStealer C&C
+2026-11-09 10:03:49,699efdab8a4d32ffa62dd1a97261e3edd5c5f87a,PureLogsStealer C&C
+2026-11-09 10:03:09,d7f8e6d688805e759b5e9346215212cd246a4b3c,PureLogsStealer C&C
+2026-11-09 10:02:54,5ccb6f0fb1de883e059a42b51e192eb4fca92373,PureLogsStealer C&C
+2026-11-09 10:02:52,fb642f9c2a93001eca125a11326d4ff6c0edd834,PureLogsStealer C&C
+2026-11-09 10:01:45,0a86f564799b68d6daec13f71654431f5bceba37,ACRStealer C&C
+2026-11-09 09:59:24,ea53cd87676a1e4bcc32a376166e21c729695daf,Vidar C&C
+2026-11-09 09:58:39,9b3e876bcc01d08cdcfaf88ee65cdd0a37d19ac9,RemusStealer C&C
+2026-11-09 09:55:03,105f909fc4a6d331ae1f63b5b85d5260c9bb5dfd,RemusStealer C&C
+2026-11-09 09:54:37,54f3060077130ecb0878934a52d37ec9994b2959,Vidar C&C
+2020-07-08 14:53:15,550e1cde5c59d03b6f3b9bd3ebfc4af6c7dbec48,Dridex C&C
+2020-06-23 13:49:21,38ecc7c543c90d25571eae05fbd1948a310761b7,Dridex C&C
+2018-07-16 13:30:28,6cfebb47098abd1b3e1ecdcc14e294a3368488fa,Quakbot C&C
+2018-07-16 13:30:00,e0d903bbddc642e5f7820b22d86eae9e15a7b2f8,Quakbot C&C
+2026-10-23 08:28:22,e8e1ee53a4b01fe4d284f3edf82c0dfd5b6c63cf,CobaltStrike C&C
+2026-10-29 09:44:22,88dfcb0baeaaec06b4973eeb6b8bf76e7ff16315,ConnectWise C&C
+2026-11-08 10:59:59,f27ee2327532465a3db66496a09ad92e8d47abdb,Malware C&C
+2014-05-04 08:10:31,86d6aade4ba1414a91b1e7fb3cdd7d503692f410,Shylock C&C
+2014-05-04 08:10:26,5afc236d1dd00c9c45457b75226b501b815a59c7,Shylock C&C
+2014-05-04 08:09:56,b08a4939fb88f375a2757eaddc47b1fb8b554439,Shylock C&C
+# END (11202) entries

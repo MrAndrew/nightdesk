@@ -1,0 +1,20 @@
+{
+ "description": "Round-3 critic home-user queries (vague, few proper names). No target reused from rounds 1-2. hit = any expected id in top 5; recall = |expected in top5| / min(|expected|,5).",
+ "queries": [
+  {"q": "hackers messed with the fridges where they keep donated blood", "expected_ids": ["6347f0773f9046b1", "afa392daaeea6847"]},
+  {"q": "russian web host got hit and customers lost everything in the cloud", "expected_ids": ["4448a4360ec1be65"]},
+  {"q": "news website in ukraine taken down by russian hackers", "expected_ids": ["7881f7cab76d3523"]},
+  {"q": "is my home NAS box getting hit by ransomware, I haven't updated it", "expected_ids": ["d108c8cad61e3a76"]},
+  {"q": "network switch bug hackers used before there was a fix, about a thousand devices", "expected_ids": ["f4f1ad10a87b9f6a"]},
+  {"q": "someone on the same wifi could swap my linux updates for bad ones", "expected_ids": ["3632eace057e58a0"]},
+  {"q": "cloud server bug where one virtual machine can snoop on the others", "expected_ids": ["de8bbdd0e39a7667"]},
+  {"q": "the PC game launcher that got hacked to install a trojan", "expected_ids": ["b7494c226c5ffbc3"]},
+  {"q": "chinese keyboard typing app being hijacked to plant a backdoor", "expected_ids": ["8384c224e801ca20"]},
+  {"q": "school got ransomware and the crooks used AI to do it", "expected_ids": ["d28d36f219921031", "d197be7f2db3fa61"]},
+  {"q": "online shop software bug that lets anyone skip the login and people are exploiting it", "expected_ids": ["6d2a0802c49f854e"]},
+  {"q": "old contact form email scripts on websites still getting abused", "expected_ids": ["7dcd83260d7cc003"]},
+  {"q": "hackers robbed a bank in france of a huge amount", "expected_ids": ["462ec96575dae404"]},
+  {"q": "betting site users lost crypto because a website speed tool script got hacked", "expected_ids": ["2a3e4a8e199c95ac"]},
+  {"q": "can picking up a voice call in a chat app infect my android phone", "expected_ids": ["dd1c518d70f0f107"]}
+ ]
+}
